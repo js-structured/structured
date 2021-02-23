@@ -1,9 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig.base-api.json",
   "compilerOptions": {
-    "module": "esnext"
+    "rootDir": "src",
+    "baseUrl": "./"
   },
   "include": [
     "./src/index.ts"
-  ]
+  ],
 }

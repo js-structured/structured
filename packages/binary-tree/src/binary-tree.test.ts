@@ -56,7 +56,7 @@ export const balanced = Object.freeze({
 } as const)
 
 describe('tree rotation', () => {
-  describe.each([
+  describe.each<[string, BTNode, (root: BTNode) => BTNode]>([
     ['single left', deepCopy(rightHeavy), singleLeft],
     ['single right', deepCopy(leftHeavy), singleRight],
     ['double left', deepCopy(rightMiddleHeavy), doubleLeft],

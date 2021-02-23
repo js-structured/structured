@@ -53,6 +53,9 @@
       "ts-jest": {
         "diagnostics": false
       }
-    }
+    },
+    "testPathIgnorePatterns": [
+      "template"
+    ]
   }
 }

@@ -316,3 +316,52 @@ export function doubleRight<T>(
   c.left = singleLeft(c.left, onLeft)
   return singleRight(c, onRight)
 }
+
+/**
+ * Returns an api to the methods in this module with specific default `onLeft`
+ * and `onRight` methods.
+ *
+ * @param onLeft The function to call on nodes before they are rotated left
+ * @param onRight The function to call on nodes before they are rotated right.
+ *
+ * @example
+ * ```typescript
+ * const rotate = rotateWith<{ weight: number }>(
+ *   (a, b) => {
+ *     a.data.size -= (b.right?.data.size ?? 0) + 1
+ *     b.data.size += (a.left?.data.size ?? 0) + 1
+ *   },
+ *   (b, c) => {
+ *     b.data.size += (c.right?.data.size ?? 0) + 1
+ *     c.data.size -= (b.left?.data.size ?? 0) + 1
+ *   },
+ * )
+ * ```
+ */
+export function rotateWith<T>(
+  defaultOnLeft: (a: BTNode<T>, b: BTNode<T>) => void,
+  defaultOnRight: (b: BTNode<T>, c: BTNode<T>) => void
+) {
+  return {
+    singleLeft(root: BTNode<T>, onLeft = defaultOnLeft) {
+      return singleLeft(root, onLeft)
+    },
+    singleRight(root: BTNode<T>, onRight = defaultOnRight) {
+      return singleRight(root, onRight)
+    },
+    doubleLeft(
+      root: BTNode<T>,
+      onLeft = defaultOnLeft,
+      onRight = defaultOnRight
+    ) {
+      return doubleLeft(root, onLeft, onRight)
+    },
+    doubleRight(
+      root: BTNode<T>,
+      onLeft = defaultOnLeft,
+      onRight = defaultOnRight
+    ) {
+      return doubleRight(root, onLeft, onRight)
+    },
+  }
+}

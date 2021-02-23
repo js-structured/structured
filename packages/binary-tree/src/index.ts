@@ -75,7 +75,7 @@ export type SingleRight<T, N extends BTNode<T> & { left: BTNode<T> }> = T &
  * b
  * ```
  *
- * Calls `onRotate` on `a` and `c` (in that order). Then rotates the tree to
+ * Rotates the tree to
  *
  * ```
  *   c
@@ -85,9 +85,15 @@ export type SingleRight<T, N extends BTNode<T> & { left: BTNode<T> }> = T &
  *   b
  * ```
  *
- * And returns the new root, `c`. All other nodes are unchanged.
+ * Then calls `onRotate` on `a` and `c` (in that order).
+ *
+ * Finally returns the new root, `c`. All other nodes are unchanged.
  *
  * If there is no right child on `a`, just returns `a` with no modification.
+ *
+ * In reality, the nodes whose left and right children seem to be changing are
+ * being replaced by (shallow) copies of the nodes whose children will be
+ * updated. This makes sure that unwanted side-effects can be avoided.
  *
  * @param a The node `a`
  * @param onRotate A callback that is called with the nodes `a` and `b`.
@@ -113,11 +119,13 @@ export function singleLeft<T>(
   if (a.right === undefined) return a
   const b = a.right
 
+  const newRoot = { ...b, left: { ...a, right: b.left } }
+
   if (onRotate !== undefined) {
-    onRotate(a, b)
+    onRotate(newRoot.left, newRoot)
   }
 
-  return { ...b, left: { ...a, right: b.left } }
+  return newRoot
 }
 
 /**
@@ -131,8 +139,7 @@ export function singleLeft<T>(
  *   b
  * ```
  *
- * Calls the `onRotate` function (if defined) on `a` and `c` (in that order).
- * Then rotates the tree to
+ * Rotates the tree to
  *
  * ```
  * a
@@ -142,9 +149,16 @@ export function singleLeft<T>(
  * b
  * ```
  *
- * And returns the new root, `a`. All other nodes are unchanged.
+ * Then calls the `onRotate` function (if defined) on `a` and `c` (in that
+ * order).
+ *
+ * Finally returns the new root, `a`.
  *
  * If there is no left child on `c`, just returns `c` with no modification.
+ *
+ * In reality, the nodes whose left and right children seem to be changing are
+ * being replaced by (shallow) copies of the nodes whose children will be
+ * updated. This makes sure that unwanted side-effects can be avoided.
  *
  * @param c The root of the original tree
  * @param onRotate A callback that is called with the nodes `b` and `c`.
@@ -169,11 +183,13 @@ export function singleRight<T>(
   if (c.left === undefined) return c
   const b = c.left
 
+  const newRoot = { ...b, right: { ...c, left: b.right } }
+
   if (onRotate !== undefined) {
-    onRotate(b, c)
+    onRotate(newRoot, newRoot.right)
   }
 
-  return { ...b, right: { ...c, left: b.right } }
+  return newRoot
 }
 
 /**

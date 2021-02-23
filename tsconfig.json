@@ -1,14 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "module": "esnext",
-    "declaration": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "downlevelIteration": true,
-    "moduleResolution": "node"
+    "module": "commonjs", // for plopfile
   },
-  "exclude": ["./node_modules/**/*"]
+  "exclude": ["node_modules"]
 }

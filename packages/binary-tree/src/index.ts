@@ -6,8 +6,8 @@
  * @template T The remaining type of the node.
  */
 export type BTNode<T = unknown> = {
-  left?: BTNode<T> | undefined
-  right?: BTNode<T> | undefined
+  readonly left?: BTNode<T> | undefined
+  readonly right?: BTNode<T> | undefined
 } & Omit<T, 'left' | 'right'>
 
 /**
@@ -117,9 +117,7 @@ export function singleLeft<T>(
     onRotate(a, b)
   }
 
-  a.right = b.left
-  b.left = a
-  return b
+  return { ...b, left: { ...a, right: b.left } }
 }
 
 /**
@@ -175,9 +173,7 @@ export function singleRight<T>(
     onRotate(b, c)
   }
 
-  c.left = b.right
-  b.right = c
-  return b
+  return { ...b, right: { ...c, left: b.right } }
 }
 
 /**
@@ -246,8 +242,7 @@ export function doubleLeft<T>(
   onRight?: (c: BTNode<T>, b: BTNode<T>) => void
 ): BTNode<T> {
   if (a.right === undefined) return a
-  a.right = singleRight(a.right, onRight)
-  return singleLeft(a, onLeft)
+  return singleLeft({ ...a, right: singleRight(a.right, onRight) }, onLeft)
 }
 
 /**
@@ -313,8 +308,7 @@ export function doubleRight<T>(
   onRight?: (c: BTNode<T>, b: BTNode<T>) => void
 ): BTNode<T> {
   if (c.left === undefined) return c
-  c.left = singleLeft(c.left, onLeft)
-  return singleRight(c, onRight)
+  return singleRight({ ...c, left: singleLeft(c.left, onLeft) }, onRight)
 }
 
 /**

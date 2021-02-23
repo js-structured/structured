@@ -62,10 +62,15 @@ describe('tree rotation', () => {
     ['double left', deepCopy(rightMiddleHeavy), doubleLeft],
     ['double right', deepCopy(leftMiddleHeavy), doubleRight],
   ])('%s', (_name, root, remedy) => {
+    const orig = deepCopy(root)
     const result = remedy(root)
 
-    it('Should rotate right', () => {
+    it('Should rotate as expected', () => {
       expect(result).toMatchObject(balanced)
+    })
+
+    it('Should not alter the original tree', () => {
+      expect(root).toMatchObject(orig)
     })
   })
 })

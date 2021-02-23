@@ -7,7 +7,7 @@
   "scripts": {
     "lerna": "lerna",
     "prepare": "yarn build",
-    "release": "yarn prepare && cross-env HUSKY_BYPASS=true lerna publish",
+    "release": "cross-env HUSKY_BYPASS=true lerna publish",
     "plop": "plop",
     "build": "rollup -c",
     "test": "jest"

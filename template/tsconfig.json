@@ -1,9 +1,9 @@
 {
-  "extends": "../tsconfig",
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext"
+  },
   "include": [
     "./src/index.ts"
-  ],
-  "compilerOptions": {
-    "rootDir": ".."
-  }
+  ]
 }

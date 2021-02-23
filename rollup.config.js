@@ -59,12 +59,10 @@ async function getConfig() {
         plugins: [
           typescript({
             typescript: require('typescript'),
-            tsconfigOverride: {
+            tsconfigDefaults: {
               exclude: ['node_modules', '**/__tests__/**/*', '**/*.test.*'],
-              compilerOptions: {
-                module: "esnext"
-              }
             },
+            tsconfig: path.join(basePath, 'tsconfig.json')
           }),
         ],
       })

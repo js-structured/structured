@@ -1,4 +1,5 @@
 import { Tuple } from 'tuple-type'
+import { compareWith } from '@structured/priority-queue'
 
 type Iterableify<T> = { [P in keyof T]: Iterable<T[P]> }
 
@@ -631,6 +632,51 @@ export function* map<T extends unknown[], M>(
 ): Generator<M> {
   for (const items of zip<T>(...iterables)) {
     yield mapper(...items)
+  }
+}
+
+/**
+ * Merges a number of iterables, each sorted according to compare, into a single
+ * iterable sorted by compare.
+ *
+ * @param compare A comparator for the values in the iterables.
+ * @param iterables A collection of sorted iterables.
+ */
+export function* merge<T>(
+  compare: (a: T, b: T) => number,
+  ...iterables: Iterable<T>[]
+): Generator<T> {
+  const heap: [T, Iterator<T>][] = iterables
+    .map((it) => it[Symbol.iterator]())
+    .map((it) => {
+      const { value } = it.next()
+      // value may still be undefined here, but we remove those with the filter.
+      return [value, it] as [T, Iterator<T>]
+    })
+    .filter(([v]) => v) // Make sure no empty iterators are added to the heap.
+
+  // We want to compare iterators by their next value.
+  const {
+    heapify,
+    heappop,
+    heapreplace,
+  } = compareWith(([a]: [T, Iterator<T>], [b]: [T, Iterator<T>]) =>
+    compare(a, b)
+  )
+
+  heapify(heap)
+
+  while (heap.length) {
+    const [next, it] = heap[0]
+    yield next
+
+    const { value, done } = it.next()
+
+    if (done) {
+      heappop(heap)
+    } else {
+      heapreplace(heap, [value, it])
+    }
   }
 }
 

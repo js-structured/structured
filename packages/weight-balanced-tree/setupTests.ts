@@ -1,4 +1,5 @@
 import { BTNode } from '@structured/binary-tree'
+import { Comparator, WBTNode } from './src'
 
 declare global {
   namespace jest {
@@ -13,6 +14,9 @@ declare global {
       /**
        * Makes sure that a weight balanced tree is balanced by checking that
        * each node satisfies the balance criteria.
+       *
+       * @param isBalanced A function to determine whether two child trees are
+       * balanced
        */
       toBeBalanced(
         isBalanced: (
@@ -20,6 +24,15 @@ declare global {
           b: BTNode<{ weight: number }>
         ) => boolean
       ): R
+
+      /**
+       * Makes sure that a binary search tree is ordered by the compare
+       * function.
+       *
+       * @param compare The comparison function that the tree should be ordered
+       * by
+       */
+      toBeOrdered<K>(compare: Comparator<K>): R
     }
   }
 }
@@ -43,7 +56,9 @@ expect.extend({
 
     return {
       message: () =>
-        `Expected node to be weighted ${pass ? 'in' : ''}correctly`,
+        `Expected node to be weighted ${pass ? 'in' : ''}correctly:
+
+- Received: ${JSON.stringify(received, null, 2)}`,
       pass,
     }
   },
@@ -65,7 +80,28 @@ expect.extend({
     const pass = checkNode(received)
 
     return {
-      message: () => `Expected node to be ${pass ? 'un' : ''}balanced`,
+      message: () => `Expected node to be ${pass ? 'un' : ''}balanced:
+
+- Received: ${JSON.stringify(received, null, 2)}`,
+      pass,
+    }
+  },
+  toBeOrdered<K, V>(received: WBTNode<K, V>, compare: Comparator<K>) {
+    const inorder = function* (node: WBTNode<K, V> | undefined) {
+      if (!node) return
+      yield* inorder(node.left)
+      yield node
+      yield* inorder(node.right)
+    }
+
+    const nodes = [...inorder(received)]
+    const sorted = [...nodes].sort((a, b) => compare(a.key, b.key))
+    const pass = sorted.every((v, i) => v === nodes[i])
+
+    return {
+      message: () => `Expected nodes to be ${pass ? 'un' : ''}ordered:
+
+- Received: ${JSON.stringify(received, null, 2)}`,
       pass,
     }
   },

@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base-api.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "./"
+  },
+  "include": [
+    "./src/index.ts"
+  ],
+}

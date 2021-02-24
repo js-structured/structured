@@ -12,14 +12,14 @@ import {
 const { singleLeft, singleRight, doubleLeft, doubleRight } = rotateWith<{
   weight: number
 }>(
-  (a, b) => {
-    a.weight -= (b.right?.weight ?? 0) + 1
-    b.weight += (a.left?.weight ?? 0) + 1
-  },
-  (b, c) => {
-    b.weight += (c.right?.weight ?? 0) + 1
-    c.weight -= (b.left?.weight ?? 0) + 1
-  }
+  (a, b) => [
+    { ...a, weight: a.weight - ((b.right?.weight ?? 0) + 1) },
+    { ...b, weight: b.weight + ((a.left?.weight ?? 0) + 1) },
+  ],
+  (b, c) => [
+    { ...b, weight: b.weight + ((c.right?.weight ?? 0) + 1) },
+    { ...b, weight: c.weight - ((b.left?.weight ?? 0) + 1) },
+  ]
 )
 
 /**

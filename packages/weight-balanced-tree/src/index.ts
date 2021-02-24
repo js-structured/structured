@@ -103,7 +103,9 @@ export function balanceRight<
 }
 
 export type Comparator<K> = (a: K, b: K) => number
-export type WBTNode<K, V> = BTNode<{ weight: number; key: K; value: V }>
+export type WBTNode<K, V> = BTNode<
+  Readonly<{ weight: number; key: K; value: V }>
+>
 
 /**
  * Inserts a new key into the tree. If the key is already in the tree, throws an

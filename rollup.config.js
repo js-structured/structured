@@ -34,7 +34,7 @@ async function getConfig() {
     const input = path.join(basePath, 'src/index.ts')
 
     /* "main" field from package.json file. */
-    const { name, main, module } = pkg.toJSON()
+    const { name, main, module, external } = pkg.toJSON()
     const output = []
 
     if (main) {
@@ -56,6 +56,7 @@ async function getConfig() {
       config.push({
         input,
         output,
+        external,
         plugins: [
           typescript({
             typescript: require('typescript'),

@@ -19,6 +19,16 @@ async function getSortedPackages(include, exclude) {
   return batchPackages(filtered).flat()
 }
 
+/**
+ * Returns a list of the names of the dependencies in the dependency object.
+ * 
+ * @param {Record<string, string> | undefined} dependencies 
+ * @returns {string[]} The dependency names as a list
+ */
+function getDependencyNames(dependencies) {
+  return Object.keys(dependencies || {})
+}
+
 async function getConfig() {
   const config = []
 
@@ -34,7 +44,7 @@ async function getConfig() {
     const input = path.join(basePath, 'src/index.ts')
 
     /* "main" field from package.json file. */
-    const { name, main, module, external } = pkg.toJSON()
+    const { name, main, module, dependencies, peerDependencies } = pkg.toJSON()
     const output = []
 
     if (main) {
@@ -56,7 +66,7 @@ async function getConfig() {
       config.push({
         input,
         output,
-        external,
+        external: [dependencies, peerDependencies].flatMap(getDependencyNames),
         plugins: [
           typescript({
             typescript: require('typescript'),

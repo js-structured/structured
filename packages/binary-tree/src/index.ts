@@ -35,44 +35,48 @@ export type UpdateRight<
 > = T & Omit<N, 'right'> & { right: R }
 
 /**
- * The type of a node after it is rotated left. Assumes the node can be rotated
- * left.
+ * The type of a node after being rotated left.
  */
-export type SingleLeft<T, N extends BTNode<T> & { right: BTNode<T> }> = T &
-  N['right'] extends infer R
-  ? R extends BTNode<T>
-    ? R['left'] extends infer L
-      ? L extends BTNode<T> | undefined
-        ? UpdateLeft<T, R, UpdateRight<T, N, L>>
+export type SingleLeft<T, N extends BTNode<T> | undefined> = N extends BTNode<T>
+  ? N['right'] extends infer R
+    ? R extends BTNode<T>
+      ? R['left'] extends infer L
+        ? L extends BTNode<T> | undefined
+          ? UpdateLeft<T, R, UpdateRight<T, N, L>>
+          : UpdateLeft<T, R, UpdateRight<T, N, undefined>>
         : never
-      : never
+      : N
     : never
-  : never
+  : undefined
 
 /**
- * The type of a node after it is rotated right. Assumes the node can be rotated
- * left.
+ * The type of a node after being rotated right.
  */
-export type SingleRight<T, N extends BTNode<T> & { left: BTNode<T> }> = T &
-  N['left'] extends infer L
-  ? L extends BTNode<T>
-    ? L['right'] extends infer R
-      ? R extends BTNode<T> | undefined
-        ? UpdateRight<T, L, UpdateLeft<T, N, R>>
-        : never
-      : never
-    : never
-  : never
-
-export type DoubleLeft<
+export type SingleRight<
   T,
-  N extends BTNode<T> & { right: BTNode<T> & { left: BTNode<T> } }
-> = SingleLeft<T, UpdateRight<T, N, SingleRight<T, N['right']>>>
+  N extends BTNode<T> | undefined
+> = N extends BTNode<T>
+  ? N['left'] extends infer L
+    ? L extends BTNode<T>
+      ? L['right'] extends infer R
+        ? R extends BTNode<T> | undefined
+          ? UpdateRight<T, L, UpdateLeft<T, N, R>>
+          : UpdateRight<T, L, UpdateLeft<T, N, undefined>>
+        : never
+      : N
+    : never
+  : undefined
+
+export type DoubleLeft<T, N extends BTNode<T> | undefined> = N extends BTNode<T>
+  ? SingleLeft<T, UpdateRight<T, N, SingleRight<T, N['right']>>>
+  : undefined
 
 export type DoubleRight<
   T,
-  N extends BTNode<T> & { left: BTNode<T> & { right: BTNode<T> } }
-> = SingleRight<T, UpdateLeft<T, N, SingleLeft<T, N['left']>>>
+  N extends BTNode<T> | undefined
+> = N extends BTNode<T>
+  ? SingleRight<T, UpdateLeft<T, N, SingleLeft<T, N['left']>>>
+  : undefined
 
 /**
  * When given a root node for the tree matching `a` in
@@ -109,24 +113,11 @@ export type DoubleRight<
  * @param onRotate A callback that is called with the nodes `a` and `b`.
  * @returns The new root, `c`.
  */
-export function singleLeft<T, N extends BTNode<T> & { right: BTNode<T> }>(
-  a: N,
-  onRotate?: (a: N, b: N['right']) => void
-): SingleLeft<T, N>
-// If the call didnt match the first signature there must be no right child
-export function singleLeft<T, N extends BTNode<T> & { right?: undefined }>(
-  a: N,
-  onRotate?: (a: BTNode<T>, b: BTNode<T>) => void
-): N
 export function singleLeft<T, N extends BTNode<T>>(
   a: N,
   onRotate?: (a: BTNode<T>, b: BTNode<T>) => void
-): BTNode<T>
-export function singleLeft<T>(
-  a: BTNode<T>,
-  onRotate?: (a: BTNode<T>, b: BTNode<T>) => void
-): BTNode<T> {
-  if (a.right === undefined) return a
+): SingleLeft<T, N> {
+  if (!a.right) return a as SingleLeft<T, N & { right: undefined }>
   const b = a.right
 
   const newRoot = { ...b, left: { ...a, right: b.left } }
@@ -135,7 +126,7 @@ export function singleLeft<T>(
     onRotate(newRoot.left, newRoot)
   }
 
-  return newRoot
+  return newRoot as SingleLeft<T, N & { right: BTNode<T> }>
 }
 
 /**
@@ -174,23 +165,11 @@ export function singleLeft<T>(
  * @param onRotate A callback that is called with the nodes `b` and `c`.
  * @returns The new root, `a`.
  */
-export function singleRight<T, N extends BTNode<T> & { left: BTNode<T> }>(
+export function singleRight<T, N extends BTNode<T>>(
   c: N,
-  onRotate?: (a: N['left'], c: N) => void
-): SingleRight<T, N>
-export function singleRight<T, N extends BTNode<T> & { left?: undefined }>(
-  a: N,
-  onRotate?: (a: BTNode<T>, b: BTNode<T>) => void
-): N
-export function singleRight<T>(
-  c: BTNode<T>,
   onRotate?: (a: BTNode<T>, c: BTNode<T>) => void
-): BTNode<T>
-export function singleRight<T>(
-  c: BTNode<T>,
-  onRotate?: (a: BTNode<T>, c: BTNode<T>) => void
-): BTNode<T> {
-  if (c.left === undefined) return c
+): SingleRight<T, N> {
+  if (!c.left) return c as SingleRight<T, N & { left: undefined }>
   const b = c.left
 
   const newRoot = { ...b, right: { ...c, left: b.right } }
@@ -199,7 +178,7 @@ export function singleRight<T>(
     onRotate(newRoot, newRoot.right)
   }
 
-  return newRoot
+  return newRoot as SingleRight<T, N & { left: BTNode<T> }>
 }
 
 /**
@@ -233,42 +212,16 @@ export function singleRight<T>(
  * @param onRight Used as the onRotate method for the [[singleRight]]
  * @returns The new root, `b`.
  */
-export function doubleLeft<
-  T,
-  N extends BTNode<T> & { right: BTNode<T> & { left: BTNode<T> } }
->(
-  a: N,
-  onLeft?: (
-    a: UpdateRight<T, N, typeof b>,
-    b: SingleRight<T, N['right']>
-  ) => void,
-  onRight?: (c: N['right'], b: N['right']['left']) => void
-): DoubleLeft<T, N>
-export function doubleLeft<
-  T,
-  N extends BTNode<T> & { right: BTNode<T> & { left?: undefined } }
->(
-  a: N,
-  onLeft?: (a: N, b: N['right']) => void,
-  onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): SingleLeft<T, N>
-export function doubleLeft<T, N extends BTNode<T> & { right?: undefined }>(
+export function doubleLeft<T, N extends BTNode<T>>(
   a: N,
   onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
   onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): N
-export function doubleLeft<T>(
-  a: BTNode<T>,
-  onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
-  onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): BTNode<T>
-export function doubleLeft<T>(
-  a: BTNode<T>,
-  onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
-  onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): BTNode<T> {
-  if (a.right === undefined) return a
-  return singleLeft({ ...a, right: singleRight(a.right, onRight) }, onLeft)
+): DoubleLeft<T, N> {
+  if (a.right === undefined) return a as DoubleLeft<T, N & { right: undefined }>
+  return singleLeft(
+    { ...a, right: singleRight(a.right, onRight) },
+    onLeft
+  ) as DoubleLeft<T, N & { right: BTNode<T> }>
 }
 
 /**
@@ -302,39 +255,16 @@ export function doubleLeft<T>(
  * @param onRight Used as the onRotate method for the [[singleRight]]
  * @returns The new root, `b`.
  */
-export function doubleRight<
-  T,
-  N extends BTNode<T> & { left: BTNode<T> & { right: BTNode<T> } }
->(
+export function doubleRight<T, N extends BTNode<T>>(
   c: N,
-  onLeft?: (a: N['left'], b: N['left']['right']) => void,
-  onRight?: (b: SingleLeft<T, N['left']>, c: UpdateLeft<T, N, typeof b>) => void
-): DoubleRight<T, N>
-export function doubleRight<
-  T,
-  N extends BTNode<T> & { left: BTNode<T> & { right?: undefined } }
->(
-  a: N,
-  onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
-  onRight?: (a: N['left'], c: N) => void
-): SingleRight<T, N>
-export function doubleRight<T, N extends BTNode<T> & { left?: undefined }>(
-  a: N,
   onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
   onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): N
-export function doubleRight<T>(
-  a: BTNode<T>,
-  onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
-  onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): BTNode<T>
-export function doubleRight<T>(
-  c: BTNode<T>,
-  onLeft?: (a: BTNode<T>, b: BTNode<T>) => void,
-  onRight?: (c: BTNode<T>, b: BTNode<T>) => void
-): BTNode<T> {
-  if (c.left === undefined) return c
-  return singleRight({ ...c, left: singleLeft(c.left, onLeft) }, onRight)
+): DoubleRight<T, N> {
+  if (c.left === undefined) return c as DoubleRight<T, N & { left: undefined }>
+  return singleRight(
+    { ...c, left: singleLeft(c.left, onLeft) },
+    onRight
+  ) as DoubleRight<T, N & { left: BTNode<T> }>
 }
 
 /**
@@ -359,29 +289,35 @@ export function doubleRight<T>(
  * ```
  */
 export function rotateWith<T>(
-  defaultOnLeft: (a: BTNode<T>, b: BTNode<T>) => void,
-  defaultOnRight: (b: BTNode<T>, c: BTNode<T>) => void
+  defaultOnLeft: <S extends T>(a: BTNode<T & S>, b: BTNode<T & S>) => void,
+  defaultOnRight: <S extends T>(b: BTNode<T & S>, c: BTNode<T & S>) => void
 ) {
   return {
-    singleLeft(root: BTNode<T>, onLeft = defaultOnLeft) {
-      return singleLeft(root, onLeft)
+    singleLeft<S extends T, N extends BTNode<T & S>>(
+      root: N,
+      onLeft = defaultOnLeft
+    ) {
+      return singleLeft<T & S, N>(root, onLeft)
     },
-    singleRight(root: BTNode<T>, onRight = defaultOnRight) {
-      return singleRight(root, onRight)
+    singleRight<S extends T, N extends BTNode<T & S>>(
+      root: N,
+      onRight = defaultOnRight
+    ) {
+      return singleRight<T & S, N>(root, onRight)
     },
-    doubleLeft(
-      root: BTNode<T>,
+    doubleLeft<S extends T, N extends BTNode<T & S>>(
+      root: N,
       onLeft = defaultOnLeft,
       onRight = defaultOnRight
     ) {
-      return doubleLeft(root, onLeft, onRight)
+      return doubleLeft<T & S, N>(root, onLeft, onRight)
     },
-    doubleRight(
-      root: BTNode<T>,
+    doubleRight<S extends T, N extends BTNode<T & S>>(
+      root: N,
       onLeft = defaultOnLeft,
       onRight = defaultOnRight
     ) {
-      return doubleRight(root, onLeft, onRight)
+      return doubleRight<T & S, N>(root, onLeft, onRight)
     },
   }
 }

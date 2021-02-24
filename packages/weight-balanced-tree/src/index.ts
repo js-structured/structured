@@ -289,3 +289,30 @@ export function findByKey<K, V>(
 ): WBTNode<K, V> | undefined {
   return findNode(root, whereIsKey(key, compare))
 }
+
+/**
+ * Produces a weight-balanced-tree from a sorted array.
+ *
+ * @param sorted An array of key-value pairs sorted by key
+ */
+export function fromSorted<K, V>(sorted: [K, V][]): WBTNode<K, V> | undefined {
+  const getNodeFromRange = (
+    lo: number,
+    hi: number
+  ): WBTNode<K, V> | undefined => {
+    if (lo > hi) {
+      return undefined
+    }
+    const mid = lo + ((hi - lo) >> 1)
+    const [key, value] = sorted[mid]
+    return {
+      key,
+      value,
+      weight: hi - lo + 1,
+      left: getNodeFromRange(lo, mid - 1),
+      right: getNodeFromRange(mid + 1, hi),
+    }
+  }
+
+  return getNodeFromRange(0, sorted.length - 1)
+}

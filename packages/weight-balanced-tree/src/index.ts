@@ -8,12 +8,6 @@ import {
   RotateCallback,
 } from '@structured/binary-tree'
 
-export type WBTNode<K extends number | string, V> = BTNode<{
-  weight: number
-  key: K
-  value: V
-}>
-
 // Set defaults for tree rotation so that weights are kept accurate
 const { singleLeft, singleRight, doubleLeft, doubleRight } = rotateWith<{
   weight: number
@@ -106,4 +100,44 @@ export function balanceRight<
   return isSingle(node.left.right, node.left.left)
     ? singleRight<T, N>(node, onLeft)
     : doubleRight<T, N>(node, onRight)
+}
+
+export type Comparator<K> = (a: K, b: K) => number
+export type WBTNode<K, V> = BTNode<{ weight: number; key: K; value: V }>
+
+/**
+ * Inserts a new key into the tree. If the key is already in the tree, throws an
+ * error.
+ *
+ * @param root The root of the tree to insert into
+ * @param key The key to insert
+ * @param value The value to insert at key
+ * @param compare A comparator for keys so that the keys can remain sorted.
+ */
+export function insert<
+  K,
+  V,
+  N extends WBTNode<K, V> | undefined = WBTNode<K, V> | undefined
+>(root: N, key: K, value: V, compare: Comparator<K>): WBTNode<K, V> {
+  if (!root) {
+    return { key, value, weight: 1 }
+  }
+
+  const d = compare(key, root.key)
+
+  if (d < 0) {
+    return balanceRight({
+      ...root,
+      left: insert(root.left, key, value, compare),
+      weight: root.weight + 1,
+    })
+  } else if (d > 0) {
+    return balanceLeft({
+      ...root,
+      right: insert(root.right, key, value, compare),
+      weight: root.weight + 1,
+    })
+  } else {
+    throw new Error(`Attempted duplicate keys insertion: ${key} ${root.key}`)
+  }
 }

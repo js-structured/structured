@@ -67,10 +67,16 @@ export type SingleRight<
     : never
   : undefined
 
+/**
+ * The type of a node after being doubly rotated left.
+ */
 export type DoubleLeft<T, N extends BTNode<T> | undefined> = N extends BTNode<T>
   ? SingleLeft<T, UpdateRight<T, N, SingleRight<T, N['right']>>>
   : undefined
 
+/**
+ * The type of a node after being doubly rotated right.
+ */
 export type DoubleRight<
   T,
   N extends BTNode<T> | undefined
@@ -78,7 +84,41 @@ export type DoubleRight<
   ? SingleRight<T, UpdateLeft<T, N, SingleLeft<T, N['left']>>>
   : undefined
 
-export type RotateCallback<T> = (a: BTNode<T>, b: BTNode<T>) => void
+/**
+ * The type of a rotate callback. Rotate callbacks get called on the new nodes
+ * (in inorder order) after a rotation has occurred. They should return a pair
+ * of parameter overrides for the new nodes.
+ *
+ * It is important that we overwrite the values we want to change, but copy all
+ * other values. This is to keep values that have been defined elsewhere
+ * (perhaps upstream). This can be done with object spread.
+ *
+ * ```typescript
+ * // The most basic callback.
+ * const onRotate: RotateCallback<T> = (a, b) => [
+ *  { ...a, changed: newValue },
+ *  { ...b, change: newValue }
+ * ]
+ * ```
+ */
+export type RotateCallback<T, A extends T = any, B extends T = any> = (
+  a: A,
+  b: B
+) => [A, B]
+
+/**
+ * Produces a method that will chain all onRotate callbacks and return their
+ * result.
+ *
+ * @param onRotate The function call or calls that will update the props.
+ */
+export const getDeduceProps = <T>(
+  onRotate: RotateCallback<T> | RotateCallback<T>[]
+) => (aProps: T, bProps: T) =>
+  (typeof onRotate === 'function' ? [onRotate] : onRotate).reduce<[T, T]>(
+    (props, cb) => cb(...props),
+    [aProps, bProps]
+  )
 
 /**
  * When given a root node for the tree matching `a` in
@@ -101,7 +141,9 @@ export type RotateCallback<T> = (a: BTNode<T>, b: BTNode<T>) => void
  *   b
  * ```
  *
- * Then calls `onRotate` on `a` and `c` (in that order).
+ * Then calls `onRotate` on `a` and `c` (in that order). `onRotate` should
+ * return copies of `a` and `c` with any updated properties, but leave left and
+ * right unchanged.
  *
  * Finally returns the new root, `c`. All other nodes are unchanged.
  *
@@ -122,15 +164,19 @@ export function singleLeft<T, N extends BTNode<T> | undefined>(
   if (!a?.right) return a as SingleLeft<T, N & { right: undefined }>
   const b = a.right
 
-  const newRoot = { ...b, left: { ...a, right: b.left } }
+  const deduceProps = getDeduceProps(onRotate)
 
-  if (onRotate instanceof Function) {
-    onRotate = [onRotate]
-  }
+  const [aProps, bProps] = deduceProps((a as unknown) as T, (b as unknown) as T)
 
-  onRotate?.forEach((callback) => callback(newRoot.left, newRoot))
-
-  return newRoot as SingleLeft<T, N & { right: BTNode<T> }>
+  return {
+    ...bProps,
+    left: {
+      ...aProps,
+      left: a.left,
+      right: b.left,
+    },
+    right: b.right,
+  } as SingleLeft<T, N & { right: BTNode<T> }>
 }
 
 /**
@@ -176,15 +222,19 @@ export function singleRight<T, N extends BTNode<T> | undefined>(
   if (!c?.left) return c as SingleRight<T, N & { left: undefined }>
   const b = c.left
 
-  const newRoot = { ...b, right: { ...c, left: b.right } }
+  const deduceProps = getDeduceProps(onRotate)
 
-  if (onRotate instanceof Function) {
-    onRotate = [onRotate]
-  }
+  const [bProps, cProps] = deduceProps((b as unknown) as T, (c as unknown) as T)
 
-  onRotate.forEach((callback) => callback(newRoot, newRoot.right))
-
-  return newRoot as SingleRight<T, N & { left: BTNode<T> }>
+  return {
+    ...bProps,
+    left: b.left,
+    right: {
+      ...cProps,
+      left: b.right,
+      right: c.right,
+    },
+  } as SingleRight<T, N & { left: BTNode<T> }>
 }
 
 /**
@@ -295,44 +345,39 @@ export function doubleRight<T, N extends BTNode<T> | undefined>(
  * ```
  */
 export function rotateWith<T>(
-  onLeft: (<S extends T>(
-    a: BTNode<T & S>,
-    b: BTNode<T & S>
-  ) => void) extends infer F
-    ? F | F[]
-    : never,
-  onRight: typeof onLeft
+  onLeft: RotateCallback<T> | RotateCallback<T>[],
+  onRight: RotateCallback<T> | RotateCallback<T>[]
 ) {
   return {
-    singleLeft<S extends T, N extends BTNode<T & S> | undefined>(
+    singleLeft<S extends T, N extends BTNode<S> | undefined>(
       root: N,
-      alsoOnLeft: RotateCallback<T & S> | RotateCallback<T & S>[] = []
+      alsoOnLeft: RotateCallback<S> | RotateCallback<S>[] = []
     ) {
-      return singleLeft<T & S, N>(root, [onLeft, alsoOnLeft].flat())
+      return singleLeft<S, N>(root, [onLeft, alsoOnLeft].flat())
     },
-    singleRight<S extends T, N extends BTNode<T & S> | undefined>(
+    singleRight<S extends T, N extends BTNode<S> | undefined>(
       root: N,
-      alsoOnRight: RotateCallback<T & S> | RotateCallback<T & S>[] = []
+      alsoOnRight: RotateCallback<S> | RotateCallback<S>[] = []
     ) {
-      return singleRight<T & S, N>(root, [onRight, alsoOnRight].flat())
+      return singleRight<S, N>(root, [onRight, alsoOnRight].flat())
     },
-    doubleLeft<S extends T, N extends BTNode<T & S> | undefined>(
+    doubleLeft<S extends T, N extends BTNode<S> | undefined>(
       root: N,
-      alsoOnLeft: RotateCallback<T & S> | RotateCallback<T & S>[] = [],
-      alsoOnRight: RotateCallback<T & S> | RotateCallback<T & S>[] = []
+      alsoOnLeft: RotateCallback<S> | RotateCallback<S>[] = [],
+      alsoOnRight: RotateCallback<S> | RotateCallback<S>[] = []
     ) {
-      return doubleLeft<T & S, N>(
+      return doubleLeft<S, N>(
         root,
         [onLeft, alsoOnLeft].flat(),
         [onRight, alsoOnRight].flat()
       )
     },
-    doubleRight<S extends T, N extends BTNode<T & S> | undefined>(
+    doubleRight<S extends T, N extends BTNode<S> | undefined>(
       root: N,
-      alsoOnLeft: RotateCallback<T & S> | RotateCallback<T & S>[] = [],
-      alsoOnRight: RotateCallback<T & S> | RotateCallback<T & S>[] = []
+      alsoOnLeft: RotateCallback<S> | RotateCallback<S>[] = [],
+      alsoOnRight: RotateCallback<S> | RotateCallback<S>[] = []
     ) {
-      return doubleRight<T & S, N>(
+      return doubleRight<S, N>(
         root,
         [onLeft, alsoOnLeft].flat(),
         [onRight, alsoOnRight].flat()

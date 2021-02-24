@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/js-structured/structured/compare/@structured/binary-tree@1.1.0...@structured/binary-tree@1.2.0) (2021-02-24)
+
+
+### Features
+
+* Add RotateCallback types ([6c17ba2](https://github.com/js-structured/structured/commit/6c17ba2fd741a74d3177cd6d108e658332de2028))
+
+
+
+
+
 # [1.1.0](https://github.com/js-structured/structured/compare/@structured/binary-tree@1.0.4...@structured/binary-tree@1.1.0) (2021-02-24)
 
 

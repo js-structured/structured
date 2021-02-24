@@ -321,3 +321,48 @@ export function rotateWith<T>(
     },
   }
 }
+
+/**
+ * Use of this method should be unneccesary. Since the tree nodes should be
+ * immutable, copying of a tree will offer no benefit.
+ *
+ * @param root The root of the tree to copy.
+ * @deprecated
+ */
+export function deepCopy<N extends BTNode | undefined>(root: N): N {
+  if (!root) return root
+
+  const result = { ...root }
+
+  if ('left' in root) {
+    // We are ignoring two things here:
+    // - The result may be undefined; Not possible, since root was defined.
+    // - The left property on BTNode is readonly. We want to update our partial
+    //   result so that the left child is not a copy by reference.
+
+    // @ts-ignore
+    result.left = deepCopy(root.left)
+  }
+
+  if ('right' in root) {
+    // See above for explanation as to why we ignore.
+
+    // @ts-ignore
+    result.right = deepCopy(root.right)
+  }
+
+  return result
+
+  // The following is potentially easier to read, but it will cause objects like
+  // { v: 'a' } to be copied to { v: 'a', left: undefined, right: undefined }.
+  // This would cause different behaviour with Object.keys etc. so we want to
+  // avoid that.
+
+  // return (
+  //   root && {
+  //     ...root,
+  //     left: deepCopy(root.left),
+  //     right: deepCopy(root.right),
+  //   }
+  // )
+}

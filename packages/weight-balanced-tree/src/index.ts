@@ -146,6 +146,60 @@ export function insert<K, V>(
 }
 
 /**
+ * Removes a key-value pair from the tree with a given key. If the key is not in
+ * the tree, returns the original tree as is.
+ *
+ * @param root The root of the tree
+ * @param key The key to remove from the tree
+ * @param compare The compare function that the tree is sorted by
+ */
+export function remove<K, V>(
+  root: WBTNode<K, V> | undefined,
+  key: K,
+  compare: Comparator<K>
+): WBTNode<K, V> | undefined {
+  if (!root) {
+    return root
+  }
+
+  const d = compare(key, root.key)
+
+  if (d < 0) {
+    const left = remove(root.left, key, compare)
+    return left === root.left
+      ? root
+      : balanceLeft({ ...root, left, weight: root.weight - 1 })
+  } else if (d > 0) {
+    const right = remove(root.right, key, compare)
+    return right === root.right
+      ? root
+      : balanceRight({ ...root, right, weight: root.weight - 1 })
+  }
+
+  // The current root is the node we want to remove.
+  if (root.left && root.right) {
+    // Two children.
+    // We will replace the current root with its predecessor, and remove the
+    // predecessor from the left subtree.
+    let pre = root.left
+    while (pre.right) {
+      pre = pre.right
+    }
+
+    return balanceLeft({
+      ...pre,
+      left: remove(root.left, pre.key, compare),
+      right: root.right,
+      weight: root.weight - 1,
+    })
+  }
+
+  // If at most one of the children is defined, they must be a single node.
+  // Since we assume that the tree is balanced.
+  return root.left || root.right
+}
+
+/**
  * Finds a node in the tree depending on a `whereToNext` function.
  *
  * When called on a node, the return value of the `whereToNext` function should

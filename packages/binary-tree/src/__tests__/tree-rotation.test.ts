@@ -1,17 +1,11 @@
-import { BTNode, doubleLeft, doubleRight, singleLeft, singleRight } from '.'
-
-/**
- * Returns a deep copy of a weight balanced tree.
- */
-export function deepCopy<N extends BTNode | undefined>(root: N): N {
-  return (
-    root && {
-      ...root,
-      left: deepCopy(root.left),
-      right: deepCopy(root.right),
-    }
-  )
-}
+import {
+  BTNode,
+  doubleLeft,
+  doubleRight,
+  singleLeft,
+  singleRight,
+  deepCopy,
+} from '..'
 
 export const rightHeavy = Object.freeze({
   data: 'a',
@@ -57,11 +51,13 @@ export const balanced = Object.freeze({
 
 describe('tree rotation', () => {
   describe.each<[string, BTNode, (root: BTNode) => BTNode]>([
-    ['single left', deepCopy(rightHeavy), singleLeft],
-    ['single right', deepCopy(leftHeavy), singleRight],
-    ['double left', deepCopy(rightMiddleHeavy), doubleLeft],
-    ['double right', deepCopy(leftMiddleHeavy), doubleRight],
+    ['single left', rightHeavy, singleLeft],
+    ['single right', leftHeavy, singleRight],
+    ['double left', rightMiddleHeavy, doubleLeft],
+    ['double right', leftMiddleHeavy, doubleRight],
   ])('%s', (_name, root, remedy) => {
+    // Since we want to test whether the root is a copy or not, we use the
+    // deprecated copy method.
     const orig = deepCopy(root)
     const result = remedy(root)
 

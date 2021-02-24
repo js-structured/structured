@@ -64,6 +64,16 @@ export type SingleRight<T, N extends BTNode<T> & { left: BTNode<T> }> = T &
     : never
   : never
 
+export type DoubleLeft<
+  T,
+  N extends BTNode<T> & { right: BTNode<T> & { left: BTNode<T> } }
+> = SingleLeft<T, UpdateRight<T, N, SingleRight<T, N['right']>>>
+
+export type DoubleRight<
+  T,
+  N extends BTNode<T> & { left: BTNode<T> & { right: BTNode<T> } }
+> = SingleRight<T, UpdateLeft<T, N, SingleLeft<T, N['left']>>>
+
 /**
  * When given a root node for the tree matching `a` in
  *
@@ -233,7 +243,7 @@ export function doubleLeft<
     b: SingleRight<T, N['right']>
   ) => void,
   onRight?: (c: N['right'], b: N['right']['left']) => void
-): SingleLeft<T, UpdateRight<T, N, SingleRight<T, N['right']>>>
+): DoubleLeft<T, N>
 export function doubleLeft<
   T,
   N extends BTNode<T> & { right: BTNode<T> & { left?: undefined } }
@@ -299,7 +309,7 @@ export function doubleRight<
   c: N,
   onLeft?: (a: N['left'], b: N['left']['right']) => void,
   onRight?: (b: SingleLeft<T, N['left']>, c: UpdateLeft<T, N, typeof b>) => void
-): SingleRight<T, UpdateLeft<T, N, SingleLeft<T, N['left']>>>
+): DoubleRight<T, N>
 export function doubleRight<
   T,
   N extends BTNode<T> & { left: BTNode<T> & { right?: undefined } }

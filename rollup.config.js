@@ -50,7 +50,7 @@ async function getConfig() {
     if (main) {
       output.push({
         file: path.join(basePath, main),
-        format: 'commonjs',
+        format: 'cjs',
       })
     }
 

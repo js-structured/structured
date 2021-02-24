@@ -1,0 +1,26 @@
+{
+  "name": "@structured/priority-queue",
+  "version": "1.0.0",
+  "description": "A binary-heap based priority queue",
+  "homepage": "https://github.com/js-structured/structured/packages/priority-queue#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-structured/structured.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/js-structured/structured/issues"
+  }
+}

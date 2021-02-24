@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/js-structured/structured/compare/@structured/weight-balanced-tree@1.2.0...@structured/weight-balanced-tree@1.3.0) (2021-02-24)
+
+
+### Features
+
+* Add from sorted ([b585c44](https://github.com/js-structured/structured/commit/b585c44557d48c89aa63ca1afc553f621f18d672))
+
+
+
+
+
 # [1.2.0](https://github.com/js-structured/structured/compare/@structured/weight-balanced-tree@1.1.0...@structured/weight-balanced-tree@1.2.0) (2021-02-24)
 
 

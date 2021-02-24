@@ -1,0 +1,29 @@
+{
+  "name": "@structured/weight-balanced-tree",
+  "version": "1.0.0",
+  "description": "An immutable weight balanced tree implementation.",
+  "homepage": "https://github.com/js-structured/structured/packages/weight-balanced-tree#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-structured/structured.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/js-structured/structured/issues"
+  },
+  "dependencies": {
+    "@structured/binary-tree": "file:../binary-tree"
+  }
+}

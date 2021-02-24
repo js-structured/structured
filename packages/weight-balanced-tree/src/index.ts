@@ -59,7 +59,7 @@ export function isBalanced(
 /**
  * Balances a potentially right heavy weight balanced tree.
  *
- * @param node The root of a weight balanced tree.
+ * @param node The root of a weight balanced tree
  * @returns The new root of the balanced tree
  */
 export function balanceLeft<
@@ -82,7 +82,7 @@ export function balanceLeft<
 /**
  * Balances a potentially left heavy weight balanced tree.
  *
- * @param node The root of a weight balanced tree.
+ * @param node The root of a weight balanced tree
  * @returns The new root of the balanced tree
  */
 export function balanceRight<
@@ -114,13 +114,14 @@ export type WBTNode<K, V> = BTNode<
  * @param root The root of the tree to insert into
  * @param key The key to insert
  * @param value The value to insert at key
- * @param compare A comparator for keys so that the keys can remain sorted.
+ * @param compare A comparator for keys so that the keys can remain sorted
  */
-export function insert<
-  K,
-  V,
-  N extends WBTNode<K, V> | undefined = WBTNode<K, V> | undefined
->(root: N, key: K, value: V, compare: Comparator<K>): WBTNode<K, V> {
+export function insert<K, V>(
+  root: WBTNode<K, V> | undefined,
+  key: K,
+  value: V,
+  compare: Comparator<K>
+): WBTNode<K, V> {
   if (!root) {
     return { key, value, weight: 1 }
   }
@@ -142,4 +143,95 @@ export function insert<
   } else {
     throw new Error(`Attempted duplicate keys insertion: ${key} ${root.key}`)
   }
+}
+
+/**
+ * Finds a node in the tree depending on a `whereToNext` function.
+ *
+ * When called on a node, the return value of the `whereToNext` function should
+ * inform `findNode` where to recurse down.
+ *
+ * - If it is negative, we recurse to the left subtree.
+ * - If it is positive, we recurse to the right subtree.
+ * - If is is zero, we return the current node.
+ *
+ * @param root The root of the tree
+ * @param whereToNext A function that informs findNode of which subtree to
+ * recurse down.
+ */
+export function findNode<K, V>(
+  root: WBTNode<K, V> | undefined,
+  whereToNext: (from: WBTNode<K, V>) => number
+): WBTNode<K, V> | undefined {
+  while (root) {
+    const d = whereToNext(root)
+
+    if (d < 0) {
+      root = root.left
+    } else if (d > 0) {
+      root = root.right
+    } else {
+      break
+    }
+  }
+
+  return root
+}
+
+/**
+ * Returns a function that can be passed to findNode, so that the node at the
+ * target index may be found.
+ *
+ * @param idx The target 0-based index
+ */
+export const whereIsIndex = <K, V>(idx: number) => (node: WBTNode<K, V>) => {
+  const left = node.left?.weight ?? 0
+
+  if (idx > left) {
+    idx -= left + 1
+    return 1
+  } else if (idx < left) {
+    return -1
+  } else {
+    return 0
+  }
+}
+
+/**
+ * Finds the `idx`th node in the tree.
+ *
+ * @param root The root of the tree
+ * @param idx The target index
+ */
+export function findByIndex<K, V>(
+  root: WBTNode<K, V> | undefined,
+  idx: number
+): WBTNode<K, V> | undefined {
+  return findNode(root, whereIsIndex(idx))
+}
+
+/**
+ * Returns a function that can be passed to findNode, so that the node with the
+ * target key may be found.
+ *
+ * @param key The target key
+ * @param compare The comparison function that the tree satisfies
+ */
+export const whereIsKey = <K, V>(key: K, compare: Comparator<K>) => (
+  node: WBTNode<K, V>
+) => compare(key, node.key)
+
+/**
+ * Finds the node with the target key in the tree.
+ *
+ * @param root The root of the tree
+ * @param key The target key
+ * @param compare The comparison function that the tree satisfies
+ */
+export function findByKey<K, V>(
+  root: WBTNode<K, V> | undefined,
+  key: K,
+  compare: Comparator<K>
+): WBTNode<K, V> | undefined {
+  return findNode(root, whereIsKey(key, compare))
 }

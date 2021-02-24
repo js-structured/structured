@@ -6,11 +6,11 @@ describe('find node', () => {
    * Represents the tree
    *
    * ```
-   *       4
+   *       3
    *     /   \
-   *   2       6
+   *   1       5
    *  / \     / \
-   * 1   3   5   7
+   * 0   2   4   6
    * ```
    */
   const root: WBTNode<number, number> = {

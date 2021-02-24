@@ -78,6 +78,8 @@ export type DoubleRight<
   ? SingleRight<T, UpdateLeft<T, N, SingleLeft<T, N['left']>>>
   : undefined
 
+export type RotateCallback<T> = (a: BTNode<T>, b: BTNode<T>) => void
+
 /**
  * When given a root node for the tree matching `a` in
  *
@@ -115,9 +117,7 @@ export type DoubleRight<
  */
 export function singleLeft<T, N extends BTNode<T> | undefined>(
   a: N,
-  onRotate: ((a: BTNode<T>, b: BTNode<T>) => void) extends infer F
-    ? F | F[]
-    : never = []
+  onRotate: RotateCallback<T> | RotateCallback<T>[] = []
 ): SingleLeft<T, N> {
   if (!a?.right) return a as SingleLeft<T, N & { right: undefined }>
   const b = a.right
@@ -171,9 +171,7 @@ export function singleLeft<T, N extends BTNode<T> | undefined>(
  */
 export function singleRight<T, N extends BTNode<T> | undefined>(
   c: N,
-  onRotate: ((a: BTNode<T>, c: BTNode<T>) => void) extends infer F
-    ? F | F[]
-    : never = []
+  onRotate: RotateCallback<T> | RotateCallback<T>[] = []
 ): SingleRight<T, N> {
   if (!c?.left) return c as SingleRight<T, N & { left: undefined }>
   const b = c.left
@@ -222,12 +220,8 @@ export function singleRight<T, N extends BTNode<T> | undefined>(
  */
 export function doubleLeft<T, N extends BTNode<T> | undefined>(
   a: N,
-  onLeft: ((a: BTNode<T>, b: BTNode<T>) => void) extends infer F
-    ? F | F[]
-    : never = [],
-  onRight: ((b: BTNode<T>, c: BTNode<T>) => void) extends infer F
-    ? F | F[]
-    : never = []
+  onLeft: RotateCallback<T> | RotateCallback<T>[] = [],
+  onRight: RotateCallback<T> | RotateCallback<T>[] = []
 ): DoubleLeft<T, N> {
   if (!a?.right) return a as DoubleLeft<T, N & { right: undefined }>
   return singleLeft(
@@ -269,12 +263,8 @@ export function doubleLeft<T, N extends BTNode<T> | undefined>(
  */
 export function doubleRight<T, N extends BTNode<T> | undefined>(
   c: N,
-  onLeft: ((a: BTNode<T>, b: BTNode<T>) => void) extends infer F
-    ? F | F[]
-    : never = [],
-  onRight: ((b: BTNode<T>, c: BTNode<T>) => void) extends infer F
-    ? F | F[]
-    : never = []
+  onLeft: RotateCallback<T> | RotateCallback<T>[] = [],
+  onRight: RotateCallback<T> | RotateCallback<T>[] = []
 ): DoubleRight<T, N> {
   if (!c?.left) return c as DoubleRight<T, N & { left: undefined }>
   return singleRight(
@@ -316,20 +306,20 @@ export function rotateWith<T>(
   return {
     singleLeft<S extends T, N extends BTNode<T & S> | undefined>(
       root: N,
-      alsoOnLeft: typeof onLeft = []
+      alsoOnLeft: RotateCallback<T & S> | RotateCallback<T & S>[] = []
     ) {
       return singleLeft<T & S, N>(root, [onLeft, alsoOnLeft].flat())
     },
     singleRight<S extends T, N extends BTNode<T & S> | undefined>(
       root: N,
-      alsoOnRight: typeof onLeft = []
+      alsoOnRight: RotateCallback<T & S> | RotateCallback<T & S>[] = []
     ) {
       return singleRight<T & S, N>(root, [onRight, alsoOnRight].flat())
     },
     doubleLeft<S extends T, N extends BTNode<T & S> | undefined>(
       root: N,
-      alsoOnLeft: typeof onLeft = [],
-      alsoOnRight: typeof onLeft = []
+      alsoOnLeft: RotateCallback<T & S> | RotateCallback<T & S>[] = [],
+      alsoOnRight: RotateCallback<T & S> | RotateCallback<T & S>[] = []
     ) {
       return doubleLeft<T & S, N>(
         root,
@@ -339,8 +329,8 @@ export function rotateWith<T>(
     },
     doubleRight<S extends T, N extends BTNode<T & S> | undefined>(
       root: N,
-      alsoOnLeft: typeof onLeft = [],
-      alsoOnRight: typeof onLeft = []
+      alsoOnLeft: RotateCallback<T & S> | RotateCallback<T & S>[] = [],
+      alsoOnRight: RotateCallback<T & S> | RotateCallback<T & S>[] = []
     ) {
       return doubleRight<T & S, N>(
         root,

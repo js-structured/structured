@@ -444,7 +444,7 @@ export function* filter<T>(
  * [...map(([k, g]) => [...g], groupBy(values))] // [[0, 0], [1, 1]]
  * ```
  */
-export function groupBy<T>(iterable: Iterable<T>): Generator<[T, Iterable<T>]>
+export function groupBy<T>(iterable: Iterable<T>): Generator<[T, Generator<T>]>
 /**
  * An iterator that returns consecutive keys and groups from the iterable.
  * Generally, the iterable needs to already be sorted on the same key function.
@@ -484,11 +484,11 @@ export function groupBy<T>(iterable: Iterable<T>): Generator<[T, Iterable<T>]>
 export function groupBy<T, K>(
   iterable: Iterable<T>,
   keyFunc: (item: T) => K
-): Generator<[K, Iterable<T>]>
+): Generator<[K, Generator<T>]>
 export function* groupBy<T, K>(
   iterable: Iterable<T>,
   keyFunc?: (v: T) => K
-): Generator<[K, Iterable<T>]> {
+): Generator<[K, Generator<T>]> {
   if (keyFunc === undefined) {
     // If the key value is to be a different type to the iterated values, then
     // a different overloaded method will be used.

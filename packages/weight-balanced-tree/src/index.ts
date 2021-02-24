@@ -5,6 +5,7 @@ import {
   DoubleLeft,
   SingleRight,
   DoubleRight,
+  RotateCallback,
 } from '@structured/binary-tree'
 
 export type WBTNode<K extends number | string, V> = BTNode<{
@@ -70,14 +71,18 @@ export function isBalanced(
 export function balanceLeft<
   T extends { weight: number },
   N extends BTNode<T> | undefined
->(node: N): N | SingleLeft<T, N> | DoubleLeft<T, N> {
+>(
+  node: N,
+  onLeft: RotateCallback<T> | RotateCallback<T>[] = [],
+  onRight: RotateCallback<T> | RotateCallback<T>[] = []
+): N | SingleLeft<T, N> | DoubleLeft<T, N> {
   if (!node?.right || isBalanced(node.left, node.right)) {
     return node
   }
 
   return isSingle(node.right.left, node.right.right)
-    ? singleLeft<T, N>(node)
-    : doubleLeft<T, N>(node)
+    ? singleLeft<T, N>(node, onLeft)
+    : doubleLeft<T, N>(node, onRight)
 }
 
 /**
@@ -89,12 +94,16 @@ export function balanceLeft<
 export function balanceRight<
   T extends { weight: number },
   N extends BTNode<T> | undefined
->(node: N): N | SingleRight<T, N> | DoubleRight<T, N> {
+>(
+  node: N,
+  onLeft: RotateCallback<T> | RotateCallback<T>[] = [],
+  onRight: RotateCallback<T> | RotateCallback<T>[] = []
+): N | SingleRight<T, N> | DoubleRight<T, N> {
   if (!node?.left || isBalanced(node.right, node.left)) {
     return node
   }
 
   return isSingle(node.left.right, node.left.left)
-    ? singleRight<T, N>(node)
-    : doubleRight<T, N>(node)
+    ? singleRight<T, N>(node, onLeft)
+    : doubleRight<T, N>(node, onRight)
 }

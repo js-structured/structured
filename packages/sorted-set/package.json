@@ -1,8 +1,8 @@
 {
-  "name": "@structured/comparable",
+  "name": "@structured/sorted-set",
   "version": "1.0.1",
-  "description": "A simple interface for comparables",
-  "homepage": "https://github.com/js-structured/structured/packages/comparator#readme",
+  "description": "A fast and reliable sorted set",
+  "homepage": "https://github.com/js-structured/structured/packages/sorted-set#readme",
   "license": "MIT",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
@@ -24,6 +24,6 @@
     "url": "https://github.com/js-structured/structured/issues"
   },
   "dependencies": {
-    "@structured/iterable": "^1.1.0"
+    "@structured/weight-balanced-tree": "file:../weight-balanced-tree"
   }
 }

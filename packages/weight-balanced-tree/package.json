@@ -1,6 +1,6 @@
 {
   "name": "@structured/weight-balanced-tree",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "An immutable weight balanced tree implementation.",
   "homepage": "https://github.com/js-structured/structured/packages/weight-balanced-tree#readme",
   "license": "MIT",

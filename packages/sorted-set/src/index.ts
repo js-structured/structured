@@ -7,6 +7,7 @@ import {
   iterateTreeKeys,
   union,
   intersection,
+  fromSorted,
 } from '@structured/weight-balanced-tree'
 import { Comparator } from '@structured/comparable'
 
@@ -93,6 +94,17 @@ export default class SortedSet<T> implements Set<T> {
     const result = new SortedSet<T>(compare)
 
     result.root = intersection(compare, ...sets.map((s) => s.root))
+
+    return result
+  }
+
+  static from<T>(compare: Comparator<T>, iterable: Iterable<T>): SortedSet<T> {
+    const sorted = [...iterable]
+      .sort(compare)
+      .filter((v, i, arr) => i === 0 || compare(arr[i - 1], v) < 0)
+    const result = new SortedSet<T>(compare)
+
+    result.root = fromSorted(sorted.map((v) => [v, v]))
 
     return result
   }

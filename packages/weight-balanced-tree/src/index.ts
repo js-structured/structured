@@ -8,7 +8,13 @@ import {
   RotateCallback,
 } from '@structured/binary-tree'
 import {
+  filter,
+  groupBy,
   map,
+  merge,
+  reduce_,
+  repeat,
+  zip,
 } from '@structured/iterable'
 
 // Set defaults for tree rotation so that weights are kept accurate
@@ -367,4 +373,93 @@ export function* iterateTreeValues<K, V>(
   root: WBTNode<K, V> | undefined
 ): Generator<V, void> {
   yield* map(([_k, v]) => v, iterateTree(root))
+}
+
+/**
+ * Calculates the union of multiple weight-balanced-trees. If a key is common to
+ * multiple trees, the value will be chosen from the first passed root with that
+ * key.
+ *
+ * @param compare The comparison function that each of the roots follows.
+ * @param roots Roots of the weght balanced trees
+ */
+export function union<K, V>(
+  compare: Comparator<K>,
+  ...roots: (WBTNode<K, V> | undefined)[]
+): WBTNode<K, V> | undefined {
+  // Create a sorted array of unique key-value pairs
+  const sorted = [
+    ...map(
+      ([_key, it]) => {
+        // The result is definitely defined, since `it` is from groupBy, and thus
+        // must not be empty
+        return reduce_(it, (res, next) => (next[1] < res[1] ? next : res))![0]
+      },
+      // Group all roots with the same keys.
+      groupBy(
+        // Merge the sorted orders of the trees by their keys.
+        merge(
+          ([[aKey]], [[bKey]]) => compare(aKey, bKey),
+          // Zip the parameter index, so that we can choose the smallest one in
+          // the case of duplicate keys.
+          ...roots.map((root, i) => zip(iterateTree(root), repeat(i)))
+        ),
+        ([[key]]) => key
+      )
+    ),
+  ]
+
+  // Return the tree based on this sorted data.
+  return fromSorted(sorted)
+}
+
+/**
+ * Calculates the intersection of multiple weight-balanced-trees. If a key is
+ * common to all trees, the value will be chosen from the first tree. Otherwise
+ * the key will not be in the result.
+ *
+ * @param compare
+ * @param roots
+ */
+export function intersection<K, V>(
+  compare: Comparator<K>,
+  ...roots: (WBTNode<K, V> | undefined)[]
+): WBTNode<K, V> | undefined {
+  // To find the intersecton, we can do the same thing as the union, but with a
+  // different approach after the groupBy.
+  const sorted = [
+    ...(filter(
+      map(
+        ([_key, it]) => {
+          // We know there is at least one node since it came from groupBy.
+          let count = 1
+          const result = reduce_(it, (min, next) => {
+            // For each other node with the same key, add one to the count and
+            // keep track of the pair with least index.
+            count += 1
+            return next[1] < min[1] ? next : min
+          })![0]
+          // If the key is in all roots; we want to keep it. Otherwise we can
+          // discard it. By returning undefined, we will discard it with the
+          // filter.
+          return count === roots.length ? result : undefined
+        },
+        // Group all roots with the same keys.
+        groupBy(
+          // Merge the sorted orders of the trees by their keys.
+          merge(
+            ([[aKey]], [[bKey]]) => compare(aKey, bKey),
+            // Zip the parameter index, so that we can choose the smallest one in
+            // the case of duplicate keys.
+            ...roots.map((root, i) => zip(iterateTree(root), repeat(i)))
+          ),
+          ([[key]]) => key
+        )
+      )
+      // We assert to the compiler that none of the filtered values will be
+      // undefined.
+    ) as Generator<[K, V]>),
+  ]
+
+  return fromSorted(sorted)
 }

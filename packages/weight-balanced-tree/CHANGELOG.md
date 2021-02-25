@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/js-structured/structured/compare/@structured/weight-balanced-tree@1.3.0...@structured/weight-balanced-tree@1.4.0) (2021-02-25)
+
+
+### Features
+
+* Add tree iteration ([3253b14](https://github.com/js-structured/structured/commit/3253b148aba6df19cf01497c22a0b52900ecd280))
+* Add union and intersection ([2be2670](https://github.com/js-structured/structured/commit/2be26702ca15cab892a9927a0813954ef12834f4))
+
+
+
+
+
 # [1.3.0](https://github.com/js-structured/structured/compare/@structured/weight-balanced-tree@1.2.0...@structured/weight-balanced-tree@1.3.0) (2021-02-24)
 
 

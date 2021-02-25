@@ -11,6 +11,10 @@ import {
 } from '@structured/weight-balanced-tree'
 import { Comparator } from '@structured/comparable'
 
+// The validity of the implementation comes from
+// '@structured/weight-balanced-tree'. I have decided to avoid implementing unit
+// tests for this module, as it is no more than a wrapper.
+
 export default class SortedSet<T> implements Set<T> {
   private root: WBTNode<T, T> | undefined
   private compare: Comparator<T>

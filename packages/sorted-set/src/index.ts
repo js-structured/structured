@@ -6,10 +6,12 @@ import {
   remove,
   iterateTree,
   iterateTreeKeys,
+  union,
+  intersection,
 } from '@structured/weight-balanced-tree'
 import { Comparator } from '@structured/comparable'
 
-class SortedSet<T> implements Set<T> {
+export default class SortedSet<T> implements Set<T> {
   private root: WBTNode<T, T> | undefined
   private compare: Comparator<T>
 
@@ -73,4 +75,26 @@ class SortedSet<T> implements Set<T> {
   }
 
   [Symbol.toStringTag]: 'SortedSet'
+
+  static union<T>(
+    compare: Comparator<T>,
+    ...sets: SortedSet<T>[]
+  ): SortedSet<T> {
+    const result = new SortedSet<T>(compare)
+
+    result.root = union(compare, ...sets.map((s) => s.root))
+
+    return result
+  }
+
+  static intersection<T>(
+    compare: Comparator<T>,
+    ...sets: SortedSet<T>[]
+  ): SortedSet<T> {
+    const result = new SortedSet<T>(compare)
+
+    result.root = intersection(compare, ...sets.map((s) => s.root))
+
+    return result
+  }
 }

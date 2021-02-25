@@ -24,6 +24,7 @@
     "url": "https://github.com/js-structured/structured/issues"
   },
   "dependencies": {
-    "@structured/weight-balanced-tree": "file:../weight-balanced-tree"
+    "@structured/weight-balanced-tree": "file:../weight-balanced-tree",
+    "@structured/comparable": "file:../comparable"
   }
 }

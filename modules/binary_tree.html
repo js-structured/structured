@@ -1,0 +1,1114 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>binary-tree | Structured</title>
+	<meta name="description" content="Documentation for Structured">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Structured</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">Structured</a>
+				</li>
+				<li>
+					<a href="binary_tree.html">binary-tree</a>
+				</li>
+			</ul>
+			<h1>Module binary-tree</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<a href="#structuredbinary-tree" id="structuredbinary-tree" style="color: inherit; text-decoration: none;">
+						<h1><code>@structured/binary-tree</code></h1>
+					</a>
+					<p>A simple binary tree and so much more.</p>
+					<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+						<h2>Installation</h2>
+					</a>
+					<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">add</span><span style="color: #000000"> @</span><span style="color: #001080">structured</span><span style="color: #000000">/</span><span style="color: #001080">binary</span><span style="color: #000000">-</span><span style="color: #001080">tree</span>
+</code></pre>
+					<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+						<h2>Usage</h2>
+					</a>
+					<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">singleLeft</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@structured/binary-tree&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">root</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;a&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">right:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;b&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">right:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">      </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;c&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #008000">// Balance the tree with a left rotation!</span>
+<span style="color: #001080">root</span><span style="color: #000000"> = </span><span style="color: #795E26">singleLeft</span><span style="color: #000000">(</span><span style="color: #001080">root</span><span style="color: #000000">)</span>
+<span style="color: #008000">// {</span>
+<span style="color: #008000">//   data: &#039;b&#039;,</span>
+<span style="color: #008000">//   left: { data: &#039;a&#039; },</span>
+<span style="color: #008000">//   right: { data: &#039;c&#039; },</span>
+<span style="color: #008000">// }</span>
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#btnode" class="tsd-kind-icon">BTNode</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#doubleleft" class="tsd-kind-icon">Double<wbr>Left</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#doubleright" class="tsd-kind-icon">Double<wbr>Right</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#rotatecallback" class="tsd-kind-icon">Rotate<wbr>Callback</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#singleleft" class="tsd-kind-icon">Single<wbr>Left</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#singleright" class="tsd-kind-icon">Single<wbr>Right</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#updateleft" class="tsd-kind-icon">Update<wbr>Left</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#updateright" class="tsd-kind-icon">Update<wbr>Right</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#deepcopy" class="tsd-kind-icon">deep<wbr>Copy</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#doubleleft-1" class="tsd-kind-icon">double<wbr>Left</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#doubleright-1" class="tsd-kind-icon">double<wbr>Right</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#getdeduceprops" class="tsd-kind-icon">get<wbr>Deduce<wbr>Props</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#rotatewith" class="tsd-kind-icon">rotate<wbr>With</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#singleleft-1" class="tsd-kind-icon">single<wbr>Left</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="binary_tree.html#singleright-1" class="tsd-kind-icon">single<wbr>Right</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="btnode" class="tsd-anchor"></a>
+					<h3>BTNode</h3>
+					<div class="tsd-signature tsd-kind-icon">BTNode&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>left<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">; </span>right<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;left&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;right&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L8">binary-tree/src/index.ts:8</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A generic binary tree node interface.</p>
+						</div>
+						<p>Also instantiated with</p>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T = <span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The remaining type of the node.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="doubleleft" class="tsd-anchor"></a>
+					<h3>Double<wbr>Left</h3>
+					<div class="tsd-signature tsd-kind-icon">Double<wbr>Left&lt;T, N&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">N</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><a href="binary_tree.html#singleleft" class="tsd-signature-type" data-tsd-kind="Type alias">SingleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#updateright" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#singleright" class="tsd-signature-type" data-tsd-kind="Type alias">SingleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;right&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L73">binary-tree/src/index.ts:73</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of a node after being doubly rotated left.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="doubleright" class="tsd-anchor"></a>
+					<h3>Double<wbr>Right</h3>
+					<div class="tsd-signature tsd-kind-icon">Double<wbr>Right&lt;T, N&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">N</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><a href="binary_tree.html#singleright" class="tsd-signature-type" data-tsd-kind="Type alias">SingleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#updateleft" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#singleleft" class="tsd-signature-type" data-tsd-kind="Type alias">SingleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;left&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L80">binary-tree/src/index.ts:80</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of a node after being doubly rotated right.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="rotatecallback" class="tsd-anchor"></a>
+					<h3>Rotate<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">Rotate<wbr>Callback&lt;T, A, B&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L104">binary-tree/src/index.ts:104</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of a rotate callback. Rotate callbacks get called on the new nodes
+								(in inorder order) after a rotation has occurred. They should return a pair
+							of parameter overrides for the new nodes.</p>
+						</div>
+						<p>It is important that we overwrite the values we want to change, but copy all
+							other values. This is to keep values that have been defined elsewhere
+						(perhaps upstream). This can be done with object spread.</p>
+						<pre><code class="language-typescript"><span style="color: #008000">// The most basic callback.</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">onRotate</span><span style="color: #000000">: </span><span style="color: #267F99">RotateCallback</span><span style="color: #000000">&lt;</span><span style="color: #267F99">T</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">a</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> [</span>
+<span style="color: #000000"> { ...</span><span style="color: #001080">a</span><span style="color: #000000">, </span><span style="color: #001080">changed:</span><span style="color: #000000"> </span><span style="color: #001080">newValue</span><span style="color: #000000"> },</span>
+<span style="color: #000000"> { ...</span><span style="color: #001080">b</span><span style="color: #000000">, </span><span style="color: #001080">change:</span><span style="color: #000000"> </span><span style="color: #001080">newValue</span><span style="color: #000000"> }</span>
+<span style="color: #000000">]</span>
+</code></pre>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>A<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span> = <span class="tsd-signature-type">any</span></h4>
+						</li>
+						<li>
+							<h4>B<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span> = <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">A</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">]</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>a: <span class="tsd-signature-type">A</span></h5>
+											</li>
+											<li>
+												<h5>b: <span class="tsd-signature-type">B</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">A</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">B</span><span class="tsd-signature-symbol">]</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="singleleft" class="tsd-anchor"></a>
+					<h3>Single<wbr>Left</h3>
+					<div class="tsd-signature tsd-kind-icon">Single<wbr>Left&lt;T, N&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">N</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;right&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">infer </span> R<span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;left&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">infer </span> L<span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> ? </span><a href="binary_tree.html#updateleft" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#updateright" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><a href="binary_tree.html#updateleft" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#updateright" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L40">binary-tree/src/index.ts:40</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of a node after being rotated left.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="singleright" class="tsd-anchor"></a>
+					<h3>Single<wbr>Right</h3>
+					<div class="tsd-signature tsd-kind-icon">Single<wbr>Right&lt;T, N&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">N</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;left&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">infer </span> L<span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;right&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-symbol">infer </span> R<span class="tsd-signature-symbol"> ? </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> extends </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> ? </span><a href="binary_tree.html#updateright" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#updateleft" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><a href="binary_tree.html#updateright" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">, </span><a href="binary_tree.html#updateleft" class="tsd-signature-type" data-tsd-kind="Type alias">UpdateLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol"> : </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L55">binary-tree/src/index.ts:55</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The type of a node after being rotated right.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="updateleft" class="tsd-anchor"></a>
+					<h3>Update<wbr>Left</h3>
+					<div class="tsd-signature tsd-kind-icon">Update<wbr>Left&lt;T, N, L&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;left&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>left<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L19">binary-tree/src/index.ts:19</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Updates the type of the left child of a node.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The original node.</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>L<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The new type for the left child.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="updateright" class="tsd-anchor"></a>
+					<h3>Update<wbr>Right</h3>
+					<div class="tsd-signature tsd-kind-icon">Update<wbr>Right&lt;T, N, R&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;right&quot;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>right<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L31">binary-tree/src/index.ts:31</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Updates the type of the right child of a node.</p>
+						</div>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+						<li>
+							<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The original node.</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>R<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The new type for the right child.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="deepcopy" class="tsd-anchor"></a>
+					<h3>deep<wbr>Copy</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">deep<wbr>Copy&lt;N&gt;<span class="tsd-signature-symbol">(</span>root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L396">binary-tree/src/index.ts:396</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use of this method should be unneccesary. Since the tree nodes should be
+									immutable, copying of a tree will offer no benefit.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>root: <span class="tsd-signature-type">N</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The root of the tree to copy.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">N</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="doubleleft-1" class="tsd-anchor"></a>
+					<h3>double<wbr>Left</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">double<wbr>Left&lt;T, N&gt;<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, onLeft<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, onRight<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#doubleleft" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L271">binary-tree/src/index.ts:271</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When given a root node for a tree matching <code>a</code> in</p>
+								</div>
+								<pre><code><span style="color: #001080">a</span>
+<span style="color: #000000"> \</span>
+<span style="color: #000000">  </span><span style="color: #001080">c</span>
+<span style="color: #000000"> /</span>
+<span style="color: #001080">b</span>
+</code></pre>
+								<p>First rotates the subtree rooted at <code>c</code> right, and then rotates the resultant
+								tree left at <code>a</code> to get</p>
+								<pre><code><span style="color: #000000">   </span><span style="color: #001080">b</span>
+<span style="color: #000000"> /   \</span>
+<span style="color: #001080">a</span><span style="color: #000000">     </span><span style="color: #001080">c</span>
+</code></pre>
+								<p>Both rotations will call the respective <code>onRight</code> and <code>onLeft</code> callbacks on
+								<code>b</code> <code>c</code> and <code>a</code> <code>b</code> respectively.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="binary_tree.html#singleleft-1">singleLeft</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="binary_tree.html#singleright-1">singleRight</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+								<li>
+									<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <span class="tsd-signature-type">N</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The root node that will be rotated</p>
+									</div>
+								</li>
+								<li>
+									<h5>onLeft: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Used as the onRotate method for the <a href="binary_tree.html#singleleft-1">singleLeft</a></p>
+									</div>
+								</li>
+								<li>
+									<h5>onRight: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Used as the onRotate method for the <a href="binary_tree.html#singleright-1">singleRight</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#doubleleft" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new root, <code>b</code>.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="doubleright-1" class="tsd-anchor"></a>
+					<h3>double<wbr>Right</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">double<wbr>Right&lt;T, N&gt;<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, onLeft<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, onRight<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#doubleright" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L314">binary-tree/src/index.ts:314</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When given the root node for a tree matching <code>c</code> in</p>
+								</div>
+								<pre><code><span style="color: #000000">  </span><span style="color: #001080">c</span>
+<span style="color: #000000"> /</span>
+<span style="color: #001080">a</span>
+<span style="color: #000000"> \</span>
+<span style="color: #000000">  </span><span style="color: #001080">b</span>
+</code></pre>
+								<p>First rotates the subtree rooted at <code>a</code> left, and then rotates the resultant
+								tree right at <code>c</code> to get</p>
+								<pre><code><span style="color: #000000">   </span><span style="color: #001080">b</span>
+<span style="color: #000000"> /   \</span>
+<span style="color: #001080">a</span><span style="color: #000000">     </span><span style="color: #001080">c</span>
+</code></pre>
+								<p>Both rotations will call the respective <code>onLeft</code> and <code>onRight</code> callbacks on
+								<code>a</code> <code>b</code> and <code>b</code> <code>c</code> respectively.</p>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="binary_tree.html#singleleft-1">singleLeft</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="binary_tree.html#singleright-1">singleRight</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+								<li>
+									<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c: <span class="tsd-signature-type">N</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The root node that will be rotated</p>
+									</div>
+								</li>
+								<li>
+									<h5>onLeft: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Used as the onRotate method for the <a href="binary_tree.html#singleleft-1">singleLeft</a></p>
+									</div>
+								</li>
+								<li>
+									<h5>onRight: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Used as the onRotate method for the <a href="binary_tree.html#singleright-1">singleRight</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#doubleright" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new root, <code>b</code>.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="getdeduceprops" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Deduce<wbr>Props</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Deduce<wbr>Props&lt;T&gt;<span class="tsd-signature-symbol">(</span>onRotate<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>aProps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, bProps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L115">binary-tree/src/index.ts:115</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Produces a method that will chain all onRotate callbacks and return their
+									result.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>onRotate: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function call or calls that will update the props.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span>aProps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, bProps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-signature">
+									<ul class="tsd-signatures tsd-kind-type-literal">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>aProps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, bProps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>aProps: <span class="tsd-signature-type">T</span></h5>
+												</li>
+												<li>
+													<h5>bProps: <span class="tsd-signature-type">T</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="rotatewith" class="tsd-anchor"></a>
+					<h3>rotate<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">rotate<wbr>With&lt;T&gt;<span class="tsd-signature-symbol">(</span>onLeft<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, onRight<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>doubleLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>doubleRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>singleLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>singleRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L347">binary-tree/src/index.ts:347</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an api to the methods in this module will always call the passed
+									<code>onLeft</code> and <code>onRight</code> methods.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rotate</span><span style="color: #000000"> = </span><span style="color: #795E26">rotateWith</span><span style="color: #000000">&lt;{ </span><span style="color: #001080">weight</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> }&gt;(</span>
+<span style="color: #000000">  (</span><span style="color: #001080">a</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">a</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> -= (</span><span style="color: #001080">b</span><span style="color: #000000">.</span><span style="color: #001080">right</span><span style="color: #000000">?.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> ?? </span><span style="color: #098658">0</span><span style="color: #000000">) + </span><span style="color: #098658">1</span>
+<span style="color: #000000">    </span><span style="color: #001080">b</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> += (</span><span style="color: #001080">a</span><span style="color: #000000">.</span><span style="color: #001080">left</span><span style="color: #000000">?.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> ?? </span><span style="color: #098658">0</span><span style="color: #000000">) + </span><span style="color: #098658">1</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">  (</span><span style="color: #001080">b</span><span style="color: #000000">, </span><span style="color: #001080">c</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">b</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> += (</span><span style="color: #001080">c</span><span style="color: #000000">.</span><span style="color: #001080">right</span><span style="color: #000000">?.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> ?? </span><span style="color: #098658">0</span><span style="color: #000000">) + </span><span style="color: #098658">1</span>
+<span style="color: #000000">    </span><span style="color: #001080">c</span><span style="color: #000000">.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> -= (</span><span style="color: #001080">b</span><span style="color: #000000">.</span><span style="color: #001080">left</span><span style="color: #000000">?.</span><span style="color: #001080">data</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000"> ?? </span><span style="color: #098658">0</span><span style="color: #000000">) + </span><span style="color: #098658">1</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">)</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>onLeft: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function(s) to call on nodes before they are rotated left</p>
+									</div>
+								</li>
+								<li>
+									<h5>onRight: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function(s) to call on nodes before they are rotated right</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>doubleLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>doubleRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>singleLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>singleRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>double<wbr>Left<span class="tsd-signature-symbol">: </span>function</h5>
+									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
+										<li class="tsd-signature tsd-kind-icon">double<wbr>Left&lt;S, N&gt;<span class="tsd-signature-symbol">(</span>root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, alsoOnLeft<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, alsoOnRight<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#doubleleft" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<aside class="tsd-sources">
+												<ul>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L364">binary-tree/src/index.ts:364</a></li>
+												</ul>
+											</aside>
+											<h4 class="tsd-type-parameters-title">Type parameters</h4>
+											<ul class="tsd-type-parameters">
+												<li>
+													<h4>S</h4>
+												</li>
+												<li>
+													<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>root: <span class="tsd-signature-type">N</span></h5>
+												</li>
+												<li>
+													<h5>alsoOnLeft: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+												</li>
+												<li>
+													<h5>alsoOnRight: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#doubleleft" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+										</li>
+									</ul>
+								</li>
+								<li class="tsd-parameter">
+									<h5>double<wbr>Right<span class="tsd-signature-symbol">: </span>function</h5>
+									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
+										<li class="tsd-signature tsd-kind-icon">double<wbr>Right&lt;S, N&gt;<span class="tsd-signature-symbol">(</span>root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, alsoOnLeft<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, alsoOnRight<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#doubleright" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<aside class="tsd-sources">
+												<ul>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L375">binary-tree/src/index.ts:375</a></li>
+												</ul>
+											</aside>
+											<h4 class="tsd-type-parameters-title">Type parameters</h4>
+											<ul class="tsd-type-parameters">
+												<li>
+													<h4>S</h4>
+												</li>
+												<li>
+													<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>root: <span class="tsd-signature-type">N</span></h5>
+												</li>
+												<li>
+													<h5>alsoOnLeft: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+												</li>
+												<li>
+													<h5>alsoOnRight: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#doubleright" class="tsd-signature-type" data-tsd-kind="Type alias">DoubleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+										</li>
+									</ul>
+								</li>
+								<li class="tsd-parameter">
+									<h5>single<wbr>Left<span class="tsd-signature-symbol">: </span>function</h5>
+									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
+										<li class="tsd-signature tsd-kind-icon">single<wbr>Left&lt;S, N&gt;<span class="tsd-signature-symbol">(</span>root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, alsoOnLeft<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#singleleft" class="tsd-signature-type" data-tsd-kind="Type alias">SingleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<aside class="tsd-sources">
+												<ul>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L352">binary-tree/src/index.ts:352</a></li>
+												</ul>
+											</aside>
+											<h4 class="tsd-type-parameters-title">Type parameters</h4>
+											<ul class="tsd-type-parameters">
+												<li>
+													<h4>S</h4>
+												</li>
+												<li>
+													<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>root: <span class="tsd-signature-type">N</span></h5>
+												</li>
+												<li>
+													<h5>alsoOnLeft: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#singleleft" class="tsd-signature-type" data-tsd-kind="Type alias">SingleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+										</li>
+									</ul>
+								</li>
+								<li class="tsd-parameter">
+									<h5>single<wbr>Right<span class="tsd-signature-symbol">: </span>function</h5>
+									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
+										<li class="tsd-signature tsd-kind-icon">single<wbr>Right&lt;S, N&gt;<span class="tsd-signature-symbol">(</span>root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, alsoOnRight<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#singleright" class="tsd-signature-type" data-tsd-kind="Type alias">SingleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<aside class="tsd-sources">
+												<ul>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L358">binary-tree/src/index.ts:358</a></li>
+												</ul>
+											</aside>
+											<h4 class="tsd-type-parameters-title">Type parameters</h4>
+											<ul class="tsd-type-parameters">
+												<li>
+													<h4>S</h4>
+												</li>
+												<li>
+													<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
+												</li>
+											</ul>
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>root: <span class="tsd-signature-type">N</span></h5>
+												</li>
+												<li>
+													<h5>alsoOnRight: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#singleright" class="tsd-signature-type" data-tsd-kind="Type alias">SingleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="singleleft-1" class="tsd-anchor"></a>
+					<h3>single<wbr>Left</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">single<wbr>Left&lt;T, N&gt;<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, onRotate<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#singleleft" class="tsd-signature-type" data-tsd-kind="Type alias">SingleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L160">binary-tree/src/index.ts:160</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When given a root node for the tree matching <code>a</code> in</p>
+								</div>
+								<pre><code><span style="color: #001080">a</span>
+<span style="color: #000000"> \</span>
+<span style="color: #000000">  </span><span style="color: #001080">c</span>
+<span style="color: #000000"> /</span>
+<span style="color: #001080">b</span>
+</code></pre>
+								<p>Rotates the tree to</p>
+								<pre><code><span style="color: #000000">  </span><span style="color: #001080">c</span>
+<span style="color: #000000"> /</span>
+<span style="color: #001080">a</span>
+<span style="color: #000000"> \</span>
+<span style="color: #000000">  </span><span style="color: #001080">b</span>
+</code></pre>
+								<p>Then calls <code>onRotate</code> on <code>a</code> and <code>c</code> (in that order). <code>onRotate</code> should
+									return copies of <code>a</code> and <code>c</code> with any updated properties, but leave left and
+								right unchanged.</p>
+								<p>Finally returns the new root, <code>c</code>. All other nodes are unchanged.</p>
+								<p>If there is no right child on <code>a</code>, just returns <code>a</code> with no modification.</p>
+								<p>In reality, the nodes whose left and right children seem to be changing are
+									being replaced by (shallow) copies of the nodes whose children will be
+								updated. This makes sure that unwanted side-effects can be avoided.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+								<li>
+									<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <span class="tsd-signature-type">N</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The node <code>a</code></p>
+									</div>
+								</li>
+								<li>
+									<h5>onRotate: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A callback that is called with the nodes <code>a</code> and <code>b</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#singleleft" class="tsd-signature-type" data-tsd-kind="Type alias">SingleLeft</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new root, <code>c</code>.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="singleright-1" class="tsd-anchor"></a>
+					<h3>single<wbr>Right</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">single<wbr>Right&lt;T, N&gt;<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">N</span>, onRotate<span class="tsd-signature-symbol">?: </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="binary_tree.html#singleright" class="tsd-signature-type" data-tsd-kind="Type alias">SingleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/binary-tree/src/index.ts#L218">binary-tree/src/index.ts:218</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When given a root node for the tree matching <code>c</code> in</p>
+								</div>
+								<pre><code><span style="color: #000000">  </span><span style="color: #001080">c</span>
+<span style="color: #000000"> /</span>
+<span style="color: #001080">a</span>
+<span style="color: #000000"> \</span>
+<span style="color: #000000">  </span><span style="color: #001080">b</span>
+</code></pre>
+								<p>Rotates the tree to</p>
+								<pre><code><span style="color: #001080">a</span>
+<span style="color: #000000"> \</span>
+<span style="color: #000000">  </span><span style="color: #001080">c</span>
+<span style="color: #000000"> /</span>
+<span style="color: #001080">b</span>
+</code></pre>
+								<p>Then calls the <code>onRotate</code> function (if defined) on <code>a</code> and <code>c</code> (in that
+								order).</p>
+								<p>Finally returns the new root, <code>a</code>.</p>
+								<p>If there is no left child on <code>c</code>, just returns <code>c</code> with no modification.</p>
+								<p>In reality, the nodes whose left and right children seem to be changing are
+									being replaced by (shallow) copies of the nodes whose children will be
+								updated. This makes sure that unwanted side-effects can be avoided.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+								<li>
+									<h4>N<span class="tsd-signature-symbol">: </span><a href="binary_tree.html#btnode" class="tsd-signature-type" data-tsd-kind="Type alias">BTNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c: <span class="tsd-signature-type">N</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The root of the original tree</p>
+									</div>
+								</li>
+								<li>
+									<h5>onRotate: <a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="binary_tree.html#rotatecallback" class="tsd-signature-type" data-tsd-kind="Type alias">RotateCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A callback that is called with the nodes <code>b</code> and <code>c</code>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="binary_tree.html#singleright" class="tsd-signature-type" data-tsd-kind="Type alias">SingleRight</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">N</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>The new root, <code>a</code>.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="binary_tree.html">binary-<wbr>tree</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="comparable.html">comparable</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="iterable.html">iterable</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="priority_queue.html">priority-<wbr>queue</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="sorted_set.html">sorted-<wbr>set</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="weight_balanced_tree.html">weight-<wbr>balanced-<wbr>tree</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-module">
+						<a href="binary_tree.html" class="tsd-kind-icon">binary-<wbr>tree</a>
+						<ul>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#btnode" class="tsd-kind-icon">BTNode</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#doubleleft" class="tsd-kind-icon">Double<wbr>Left</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#doubleright" class="tsd-kind-icon">Double<wbr>Right</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#rotatecallback" class="tsd-kind-icon">Rotate<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#singleleft" class="tsd-kind-icon">Single<wbr>Left</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#singleright" class="tsd-kind-icon">Single<wbr>Right</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#updateleft" class="tsd-kind-icon">Update<wbr>Left</a>
+							</li>
+							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#updateright" class="tsd-kind-icon">Update<wbr>Right</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#deepcopy" class="tsd-kind-icon">deep<wbr>Copy</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#doubleleft-1" class="tsd-kind-icon">double<wbr>Left</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#doubleright-1" class="tsd-kind-icon">double<wbr>Right</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#getdeduceprops" class="tsd-kind-icon">get<wbr>Deduce<wbr>Props</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#rotatewith" class="tsd-kind-icon">rotate<wbr>With</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#singleleft-1" class="tsd-kind-icon">single<wbr>Left</a>
+							</li>
+							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+								<a href="binary_tree.html#singleright-1" class="tsd-kind-icon">single<wbr>Right</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-module">
+						<a href="comparable.html" class="tsd-kind-icon">comparable</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="iterable.html" class="tsd-kind-icon">iterable</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="priority_queue.html" class="tsd-kind-icon">priority-<wbr>queue</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="sorted_set.html" class="tsd-kind-icon">sorted-<wbr>set</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="weight_balanced_tree.html" class="tsd-kind-icon">weight-<wbr>balanced-<wbr>tree</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 import {
   insert,
-  findByIndex,
   findByKey,
   WBTNode,
   remove,

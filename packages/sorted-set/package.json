@@ -1,6 +1,6 @@
 {
   "name": "@structured/sorted-set",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A fast and reliable sorted set",
   "homepage": "https://github.com/js-structured/structured/packages/sorted-set#readme",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "url": "https://github.com/js-structured/structured/issues"
   },
   "dependencies": {
-    "@structured/weight-balanced-tree": "file:../weight-balanced-tree",
-    "@structured/comparable": "file:../comparable"
+    "@structured/comparable": "file:../comparable",
+    "@structured/weight-balanced-tree": "file:../weight-balanced-tree"
   }
 }

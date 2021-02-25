@@ -24,6 +24,7 @@
     "url": "https://github.com/js-structured/structured/issues"
   },
   "dependencies": {
-    "@structured/binary-tree": "file:../binary-tree"
+    "@structured/binary-tree": "file:../binary-tree",
+    "@structured/iterable": "file:../iterable"
   }
 }

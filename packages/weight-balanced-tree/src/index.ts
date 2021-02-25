@@ -7,6 +7,9 @@ import {
   DoubleRight,
   RotateCallback,
 } from '@structured/binary-tree'
+import {
+  map,
+} from '@structured/iterable'
 
 // Set defaults for tree rotation so that weights are kept accurate
 const { singleLeft, singleRight, doubleLeft, doubleRight } = rotateWith<{
@@ -315,4 +318,53 @@ export function fromSorted<K, V>(sorted: [K, V][]): WBTNode<K, V> | undefined {
   }
 
   return getNodeFromRange(0, sorted.length - 1)
+}
+
+/**
+ * Iterates the key-value pairs of the weight balanced tree in key order.
+ *
+ * @param root The root of the weight-balanced tree
+ */
+export function* iterateTree<K, V>(
+  root: WBTNode<K, V> | undefined
+): Generator<[K, V], void> {
+  const stack = []
+  let curr = root
+
+  while (curr || stack.length) {
+    while (curr) {
+      stack.push(curr)
+      curr = curr.left
+    }
+    // We know that if the stack had no elements before, then curr was defined,
+    // and thus must have been added to the stack.
+    // @ts-ignore
+    curr = stack.pop()!
+    yield [curr.key, curr.value]
+    curr = curr.right
+  }
+}
+
+/**
+ * Iterates over they keys of the tree in key-order.
+ *
+ * @see [[iterateTree]]
+ * @param root The root of the tree
+ */
+export function* iterateTreeKeys<K, V>(
+  root: WBTNode<K, V> | undefined
+): Generator<K, void> {
+  yield* map(([k]) => k, iterateTree(root))
+}
+
+/**
+ * Iterates over the values of the tree in key-order.
+ *
+ * @see [[iterateTree]]
+ * @param root The root of the tree
+ */
+export function* iterateTreeValues<K, V>(
+  root: WBTNode<K, V> | undefined
+): Generator<V, void> {
+  yield* map(([_k, v]) => v, iterateTree(root))
 }

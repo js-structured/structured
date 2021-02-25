@@ -59,5 +59,11 @@
     "testPathIgnorePatterns": [
       "template"
     ]
+  },
+  "dependencies": {
+    "@structured/binary-tree": "file:packages/binary-tree",
+    "@structured/iterable": "file:packages/iterable",
+    "@structured/priority-queue": "file:packages/priority-queue",
+    "@structured/weight-balanced-tree": "file:packages/weight-balanced-tree"
   }
 }

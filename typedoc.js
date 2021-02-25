@@ -2,7 +2,7 @@ const { getPackagesSync } = require('@lerna/project')
 const path = require('path')
 
 module.exports = {
-  name: 'Structured',
+  name: '@structured',
   out: 'docs',
   theme: 'default',
   exclude: '*.spec.ts',

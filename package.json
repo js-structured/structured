@@ -62,8 +62,10 @@
   },
   "dependencies": {
     "@structured/binary-tree": "file:packages/binary-tree",
+    "@structured/comparable": "file:packages/comparable",
     "@structured/iterable": "file:packages/iterable",
     "@structured/priority-queue": "file:packages/priority-queue",
+    "@structured/sorted-set": "file:packages/sorted-set",
     "@structured/weight-balanced-tree": "file:packages/weight-balanced-tree"
   }
 }

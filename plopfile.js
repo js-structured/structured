@@ -1,6 +1,4 @@
-import { NodePlopAPI } from 'plop'
-
-export default function (plop: NodePlopAPI) {
+module.exports = function (plop) {
   plop.setGenerator('package', {
     description: 'Set up a new package',
     prompts: [

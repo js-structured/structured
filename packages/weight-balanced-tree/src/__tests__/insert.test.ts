@@ -1,5 +1,6 @@
 import { deepCopy } from '@structured/binary-tree'
-import { Comparator, insert, isBalanced, WBTNode } from '..'
+import { insert, isBalanced, WBTNode } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('insert', () => {

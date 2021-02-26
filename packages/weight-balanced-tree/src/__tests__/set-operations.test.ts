@@ -3,11 +3,11 @@ import {
   union,
   intersection,
   fromSorted,
-  Comparator,
   isBalanced,
   iterateTree,
   findByKey,
 } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('set operations', () => {

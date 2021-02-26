@@ -1643,28 +1643,22 @@
 "@structured/comparable@file:packages/comparable":
   version "1.0.2"
   dependencies:
-    "@structured/iterable" "file:../../Library/Caches/Yarn/v6/npm-@structured-comparable-1.0.2-2530634d-0d53-42f5-b4e4-6032660ced60-1614272362912/node_modules/@structured/iterable"
+    "@structured/iterable" "file:../../Library/Caches/Yarn/v6/npm-@structured-comparable-1.0.2-8b2a84af-2ff0-4dcd-a832-51f57dfb6613-1614322305911/node_modules/@structured/iterable"
 
 "@structured/iterable@file:packages/iterable":
   version "1.1.0"
   dependencies:
-    "@structured/priority-queue" "file:../../Library/Caches/Yarn/v6/npm-@structured-iterable-1.1.0-6934518c-4095-469a-bc55-45664fd265e4-1614272362917/node_modules/@structured/priority-queue"
+    "@structured/priority-queue" "file:../../Library/Caches/Yarn/v6/npm-@structured-iterable-1.1.0-42f110ba-ff80-4802-82a8-f6dd1fe34ffb-1614322305909/node_modules/@structured/priority-queue"
     tuple-type "^1.0.3"
 
 "@structured/priority-queue@file:packages/priority-queue":
   version "1.0.1"
 
-"@structured/sorted-set@file:packages/sorted-set":
-  version "1.0.2"
-  dependencies:
-    "@structured/comparable" "file:../../Library/Caches/Yarn/v6/npm-@structured-sorted-set-1.0.2-bf8b480c-869c-4c14-a145-825fc9848dfa-1614272362927/node_modules/@structured/comparable"
-    "@structured/weight-balanced-tree" "file:../../Library/Caches/Yarn/v6/npm-@structured-sorted-set-1.0.2-bf8b480c-869c-4c14-a145-825fc9848dfa-1614272362927/node_modules/@structured/weight-balanced-tree"
-
 "@structured/weight-balanced-tree@file:packages/weight-balanced-tree":
   version "1.4.1"
   dependencies:
-    "@structured/binary-tree" "file:../../Library/Caches/Yarn/v6/npm-@structured-weight-balanced-tree-1.4.1-f40bfed6-0b3e-45c5-b72e-4e82b39783fe-1614272362929/node_modules/@structured/binary-tree"
-    "@structured/iterable" "file:../../Library/Caches/Yarn/v6/npm-@structured-weight-balanced-tree-1.4.1-f40bfed6-0b3e-45c5-b72e-4e82b39783fe-1614272362929/node_modules/@structured/iterable"
+    "@structured/binary-tree" "file:../../Library/Caches/Yarn/v6/npm-@structured-weight-balanced-tree-1.4.1-52cf0a8c-9a9b-4f09-9e87-32ed03000412-1614322305911/node_modules/@structured/binary-tree"
+    "@structured/iterable" "file:../../Library/Caches/Yarn/v6/npm-@structured-weight-balanced-tree-1.4.1-52cf0a8c-9a9b-4f09-9e87-32ed03000412-1614322305911/node_modules/@structured/iterable"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.12"

@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@structured/binary-tree": "file:../binary-tree",
+    "@structured/comparable": "file:../comparable",
     "@structured/iterable": "file:../iterable"
   }
 }

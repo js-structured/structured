@@ -1,5 +1,5 @@
-import { findByIndex, findByKey } from '..'
-import { Comparator, WBTNode } from '../../lib'
+import { WBTNode, findByIndex, findByKey } from '..'
+import { Comparator } from '@structured/comparable'
 
 describe('find node', () => {
   /**

@@ -1,5 +1,6 @@
 import { Tuple } from 'tuple-type'
 import { compareWith } from '@structured/priority-queue'
+import { Comparator } from '@structured/comparable'
 
 type Iterableify<T> = { [P in keyof T]: Iterable<T[P]> }
 
@@ -643,7 +644,7 @@ export function* map<T extends unknown[], M>(
  * @param iterables A collection of sorted iterables.
  */
 export function* merge<T>(
-  compare: (a: T, b: T) => number,
+  compare: Comparator<T>,
   ...iterables: Iterable<T>[]
 ): Generator<T> {
   const heap: [T, Iterator<T>][] = iterables
@@ -656,12 +657,8 @@ export function* merge<T>(
     .filter(([v]) => v) // Make sure no empty iterators are added to the heap.
 
   // We want to compare iterators by their next value.
-  const {
-    heapify,
-    heappop,
-    heapreplace,
-  } = compareWith(([a]: [T, Iterator<T>], [b]: [T, Iterator<T>]) =>
-    compare(a, b)
+  const { heapify, heappop, heapreplace } = compareWith<[T, Iterator<T>]>(
+    ([a], [b]) => compare(a, b)
   )
 
   heapify(heap)

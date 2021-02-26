@@ -2,6 +2,7 @@
 .DS_Store
 .jest-*
 .vscode
+.rpt2_cache
 lib
 node_modules
 docs

@@ -5,14 +5,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build:docs": "typedoc",
-    "predeploy": "yarn build:docs",
-    "deploy": "gh-pages -b gh-pages -d docs",
     "lerna": "lerna",
     "prepare": "yarn build",
     "release": "cross-env HUSKY_BYPASS=true lerna publish",
     "plop": "plop",
-    "build": "rollup -c",
+    "build": "lerna exec -- bili --config ../../.bilirc.js",
+    "build:clean": "rimraf packages/*/lib",
+    "docs:build": "typedoc",
+    "docs:clean": "rimraf docs",
+    "predeploy": "yarn docs:build",
+    "deploy": "gh-pages -b gh-pages -d docs",
     "test": "jest"
   },
   "devDependencies": {
@@ -24,6 +26,7 @@
     "@strictsoftware/typedoc-plugin-monorepo": "^0.4.2",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
+    "bili": "^5.0.5",
     "cross-env": "^7.0.3",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.0.0",
@@ -35,6 +38,7 @@
     "minimist": "^1.2.5",
     "plop": "^2.7.4",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.39.0",
     "rollup-plugin-typescript2": "^0.30.0",
     "ts-jest": "^26.5.1",

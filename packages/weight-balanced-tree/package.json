@@ -5,7 +5,7 @@
   "homepage": "https://github.com/js-structured/structured/packages/weight-balanced-tree#readme",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"

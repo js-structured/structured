@@ -70,9 +70,6 @@ async function getConfig() {
         plugins: [
           typescript({
             typescript: require('typescript'),
-            tsconfigDefaults: {
-              exclude: ['node_modules', '**/__tests__/**/*', '**/*.test.*'],
-            },
             tsconfig: path.join(basePath, 'tsconfig.json')
           }),
         ],

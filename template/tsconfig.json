@@ -1,10 +1,9 @@
 {
-  "extends": "../tsconfig.base-api.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "baseUrl": "./"
+    "baseUrl": "../../",
   },
-  "include": [
-    "./src/index.ts"
-  ],
+  "include": ["./src/index.ts"],
+  "exclude": ["node_modules", "**/__tests__/**/*"],
 }

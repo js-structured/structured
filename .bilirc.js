@@ -1,6 +1,7 @@
 const path = require("path");
 
-module.exports = {
+/** @type {import('bili').Config} */
+const config = {
   input: "./src/index.ts",
   output: {
     moduleName: "Package",
@@ -13,3 +14,5 @@ module.exports = {
     }
   }
 };
+
+module.exports = config

@@ -65,12 +65,16 @@
     },
     "globals": {
       "ts-jest": {
-        "diagnostics": false
+        "diagnostics": false,
+        "tsconfig": "./tsconfig.test.json"
       }
     },
     "testPathIgnorePatterns": [
       "template"
-    ]
+    ],
+    "moduleNameMapper": {
+      "@structured/([^/]+)": "<rootDir>/packages/$1/src"
+    }
   },
   "dependencies": {
     "@structured/binary-tree": "file:packages/binary-tree",

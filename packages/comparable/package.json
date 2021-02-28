@@ -1,6 +1,6 @@
 {
   "name": "@structured/comparable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple interface for comparables",
   "homepage": "https://github.com/js-structured/structured/packages/comparator#readme",
   "license": "MIT",

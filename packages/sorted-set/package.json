@@ -1,6 +1,6 @@
 {
   "name": "@structured/sorted-set",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A fast and reliable sorted set",
   "homepage": "https://github.com/js-structured/structured/packages/sorted-set#readme",
   "license": "MIT",

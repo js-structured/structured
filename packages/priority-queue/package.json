@@ -1,6 +1,6 @@
 {
   "name": "@structured/priority-queue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A binary-heap based priority queue",
   "homepage": "https://github.com/js-structured/structured/packages/priority-queue#readme",
   "license": "MIT",

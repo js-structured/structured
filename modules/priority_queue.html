@@ -90,12 +90,6 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="priority_queue.html#comparator" class="tsd-kind-icon">Comparator</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="priority_queue.html#comparewith" class="tsd-kind-icon">compare<wbr>With</a></li>
@@ -111,72 +105,18 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="comparator" class="tsd-anchor"></a>
-					<h3>Comparator</h3>
-					<div class="tsd-signature tsd-kind-icon">Comparator&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L10">priority-queue/src/index.ts:10</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A Function to compare two values of the same type <code>T</code>.</p>
-						</div>
-						<p>The return value should be a number, v, such that</p>
-						<ul>
-							<li>If value <code>a</code> is less than value <code>b</code>, v is negative.</li>
-							<li>If value <code>a</code> is greater than value <code>b</code>, v is positive.</li>
-							<li>If value <code>a</code> is equal to value <code>b</code>, v is zero.</li>
-						</ul>
-					</div>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<h4>T</h4>
-						</li>
-					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>a: <span class="tsd-signature-type">T</span></h5>
-											</li>
-											<li>
-												<h5>b: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="comparewith" class="tsd-anchor"></a>
 					<h3>compare<wbr>With</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">compare<wbr>With&lt;T&gt;<span class="tsd-signature-symbol">(</span>compare<span class="tsd-signature-symbol">: </span><a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>heapify<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappush<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappushpop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heapreplace<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">compare<wbr>With&lt;T&gt;<span class="tsd-signature-symbol">(</span>compare<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>heapify<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappush<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappushpop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heapreplace<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L197">priority-queue/src/index.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L188">priority-queue/src/index.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -214,7 +154,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>compare: <a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>compare: <span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>heapify<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappush<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heappushpop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>heapreplace<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></h4>
@@ -228,7 +168,7 @@
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L199">priority-queue/src/index.ts:199</a></li>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L190">priority-queue/src/index.ts:190</a></li>
 												</ul>
 											</aside>
 											<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -250,13 +190,13 @@
 								<li class="tsd-parameter">
 									<h5>heappop<span class="tsd-signature-symbol">: </span>function</h5>
 									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
-										<li class="tsd-signature tsd-kind-icon">heappop&lt;S&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+										<li class="tsd-signature tsd-kind-icon">heappop&lt;S&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L205">priority-queue/src/index.ts:205</a></li>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L196">priority-queue/src/index.ts:196</a></li>
 												</ul>
 											</aside>
 											<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -271,7 +211,7 @@
 													<h5>heap: <span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span></h5>
 												</li>
 											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span></h4>
 										</li>
 									</ul>
 								</li>
@@ -284,7 +224,7 @@
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L202">priority-queue/src/index.ts:202</a></li>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L193">priority-queue/src/index.ts:193</a></li>
 												</ul>
 											</aside>
 											<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -309,13 +249,13 @@
 								<li class="tsd-parameter">
 									<h5>heappushpop<span class="tsd-signature-symbol">: </span>function</h5>
 									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
-										<li class="tsd-signature tsd-kind-icon">heappushpop&lt;S&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+										<li class="tsd-signature tsd-kind-icon">heappushpop&lt;S&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L208">priority-queue/src/index.ts:208</a></li>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L199">priority-queue/src/index.ts:199</a></li>
 												</ul>
 											</aside>
 											<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -333,20 +273,20 @@
 													<h5>value: <span class="tsd-signature-type">S</span></h5>
 												</li>
 											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">S</span></h4>
 										</li>
 									</ul>
 								</li>
 								<li class="tsd-parameter">
 									<h5>heapreplace<span class="tsd-signature-symbol">: </span>function</h5>
 									<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
-										<li class="tsd-signature tsd-kind-icon">heapreplace&lt;S&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+										<li class="tsd-signature tsd-kind-icon">heapreplace&lt;S&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L211">priority-queue/src/index.ts:211</a></li>
+													<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L202">priority-queue/src/index.ts:202</a></li>
 												</ul>
 											</aside>
 											<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -364,7 +304,7 @@
 													<h5>value: <span class="tsd-signature-type">S</span></h5>
 												</li>
 											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">S</span></h4>
 										</li>
 									</ul>
 								</li>
@@ -382,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L18">priority-queue/src/index.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L9">priority-queue/src/index.ts:9</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,13 +350,13 @@
 					<a name="heapify" class="tsd-anchor"></a>
 					<h3>heapify</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">heapify&lt;T&gt;<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, compare<span class="tsd-signature-symbol">?: </span><a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">heapify&lt;T&gt;<span class="tsd-signature-symbol">(</span>arr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, compare<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L77">priority-queue/src/index.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L68">priority-queue/src/index.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,7 +376,7 @@
 									<h5>arr: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5>compare: <a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<h5>compare: <span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -447,13 +387,13 @@
 					<a name="heappop" class="tsd-anchor"></a>
 					<h3>heappop</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">heappop&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, compare<span class="tsd-signature-symbol">?: </span><a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">heappop&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, compare<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L103">priority-queue/src/index.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L94">priority-queue/src/index.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -474,7 +414,7 @@
 									<h5>heap: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
-									<h5>compare: <a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<h5>compare: <span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
@@ -485,13 +425,13 @@
 					<a name="heappush" class="tsd-anchor"></a>
 					<h3>heappush</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">heappush&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, compare<span class="tsd-signature-symbol">?: </span><a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">heappush&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, compare<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L90">priority-queue/src/index.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L81">priority-queue/src/index.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -515,7 +455,7 @@
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5>compare: <a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<h5>compare: <span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -526,13 +466,13 @@
 					<a name="heappushpop" class="tsd-anchor"></a>
 					<h3>heappushpop</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">heappushpop&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, compare<span class="tsd-signature-symbol">?: </span><a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">heappushpop&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, compare<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L132">priority-queue/src/index.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L123">priority-queue/src/index.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +504,7 @@
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5>compare: <a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<h5>compare: <span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -575,13 +515,13 @@
 					<a name="heapreplace" class="tsd-anchor"></a>
 					<h3>heapreplace</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">heapreplace&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, compare<span class="tsd-signature-symbol">?: </span><a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+						<li class="tsd-signature tsd-kind-icon">heapreplace&lt;T&gt;<span class="tsd-signature-symbol">(</span>heap<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, compare<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/js-structured/structured/blob/d93dd66/packages/priority-queue/src/index.ts#L158">priority-queue/src/index.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/js-structured/structured/blob/ca01ecb/packages/priority-queue/src/index.ts#L149">priority-queue/src/index.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -612,7 +552,7 @@
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5>compare: <a href="priority_queue.html#comparator" class="tsd-signature-type" data-tsd-kind="Type alias">Comparator</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<h5>compare: <span class="tsd-signature-type">Comparator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
@@ -663,9 +603,6 @@
 					<li class="current tsd-kind-module">
 						<a href="priority_queue.html" class="tsd-kind-icon">priority-<wbr>queue</a>
 						<ul>
-							<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-								<a href="priority_queue.html#comparator" class="tsd-kind-icon">Comparator</a>
-							</li>
 							<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 								<a href="priority_queue.html#comparewith" class="tsd-kind-icon">compare<wbr>With</a>
 							</li>

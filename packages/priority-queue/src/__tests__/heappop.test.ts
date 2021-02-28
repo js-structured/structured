@@ -1,4 +1,5 @@
-import { Comparator, heappop } from '..'
+import { heappop } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('heappop', () => {

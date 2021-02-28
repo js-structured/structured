@@ -1,4 +1,4 @@
-import { Comparator } from './src'
+import { Comparator } from '@structured/comparable'
 
 declare global {
   namespace jest {

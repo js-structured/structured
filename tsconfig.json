@@ -1,9 +1,23 @@
 {
   "compilerOptions": {
-    // for plopfile and jest
-    "target": "es2019",
-    "module": "commonjs",
-    "lib": ["es2019"]
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext"],
+    "strict": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "baseUrl": "packages",
+    "paths": {
+      "@structured/binary-tree": ["binary-tree/src"],
+      "@structured/comparable": ["comparable/src"],
+      "@structured/iterable": ["iterable/src"],
+      "@structured/priority-queue": ["priority-queue/src"],
+      "@structured/sorted-set": ["sorted-set/src"],
+      "@structured/weight-balanced-tree": ["weight-balanced-tree/src"],
+    }
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "**/__tests__/**/*"],
 }

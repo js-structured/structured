@@ -5,7 +5,7 @@
   "homepage": "https://github.com/js-structured/structured/packages/{{ name }}#readme",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
@@ -18,7 +18,8 @@
     "url": "git+https://github.com/js-structured/structured.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "bili --config ../../.bilirc.js"
   },
   "bugs": {
     "url": "https://github.com/js-structured/structured/issues"

@@ -1,13 +1,4 @@
-/**
- * A Function to compare two values of the same type `T`.
- *
- * The return value should be a number, v, such that
- *
- * - If value `a` is less than value `b`, v is negative.
- * - If value `a` is greater than value `b`, v is positive.
- * - If value `a` is equal to value `b`, v is zero.
- */
-export type Comparator<T> = (a: T, b: T) => number
+import { Comparator } from '@structured/comparable'
 
 /**
  * The default comparator for the heap actions. It is defined this way to be

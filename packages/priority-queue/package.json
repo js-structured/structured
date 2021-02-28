@@ -1,11 +1,11 @@
 {
   "name": "@structured/priority-queue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A binary-heap based priority queue",
   "homepage": "https://github.com/js-structured/structured/packages/priority-queue#readme",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
@@ -18,9 +18,13 @@
     "url": "git+https://github.com/js-structured/structured.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "bili --config ../../.bilirc.js"
   },
   "bugs": {
     "url": "https://github.com/js-structured/structured/issues"
+  },
+  "dependencies": {
+    "@structured/comparable": "file:../comparable"
   }
 }

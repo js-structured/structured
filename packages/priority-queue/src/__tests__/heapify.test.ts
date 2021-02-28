@@ -1,4 +1,5 @@
-import { Comparator, heapify } from '..'
+import { heapify } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('heapify', () => {

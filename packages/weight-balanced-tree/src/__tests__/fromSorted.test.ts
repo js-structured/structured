@@ -1,4 +1,5 @@
-import { Comparator, fromSorted, isBalanced } from '..'
+import { fromSorted, isBalanced } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('fromSorted', () => {

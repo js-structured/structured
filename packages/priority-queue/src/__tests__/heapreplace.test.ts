@@ -1,4 +1,5 @@
-import { Comparator, heapreplace } from '..'
+import { heapreplace } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('heapreplace', () => {

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/js-structured/structured/compare/@structured/iterable@1.1.0...@structured/iterable@1.1.1) (2021-02-28)
+
+**Note:** Version bump only for package @structured/iterable
+
+
+
+
+
 # [1.1.0](https://github.com/js-structured/structured/compare/@structured/iterable@1.0.1...@structured/iterable@1.1.0) (2021-02-25)
 
 

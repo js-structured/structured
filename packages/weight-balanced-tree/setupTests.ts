@@ -1,5 +1,6 @@
 import { BTNode } from '@structured/binary-tree'
-import { Comparator, WBTNode } from './src'
+import { Comparator } from '@structured/comparable'
+import { WBTNode } from './src'
 
 declare global {
   namespace jest {
@@ -64,7 +65,7 @@ expect.extend({
   },
   toBeBalanced<T extends { weight: number }, N extends BTNode<T> | undefined>(
     received: N,
-    isBalanced: (a: BTNode<T>, b: BTNode<T>) => boolean
+    isBalanced: (a: BTNode<T> | undefined, b: BTNode<T> | undefined) => boolean
   ) {
     const checkNode = (node: BTNode<T> | undefined): boolean => {
       if (!node) return true
@@ -87,7 +88,9 @@ expect.extend({
     }
   },
   toBeOrdered<K, V>(received: WBTNode<K, V>, compare: Comparator<K>) {
-    const inorder = function* (node: WBTNode<K, V> | undefined) {
+    const inorder = function* (
+      node: WBTNode<K, V> | undefined
+    ): Generator<WBTNode<K, V>> {
       if (!node) return
       yield* inorder(node.left)
       yield node

@@ -1,4 +1,5 @@
-import { Comparator, compareWith } from '..'
+import { compareWith } from '..'
+import { Comparator } from '@structured/comparable'
 import '../../setupTests'
 
 describe('useHeap', () => {

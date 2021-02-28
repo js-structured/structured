@@ -1,11 +1,11 @@
 {
   "name": "@structured/weight-balanced-tree",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "An immutable weight balanced tree implementation.",
   "homepage": "https://github.com/js-structured/structured/packages/weight-balanced-tree#readme",
   "license": "MIT",
   "main": "lib/index.js",
-  "module": "lib/index.es.js",
+  "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
   "files": [
     "lib"
@@ -18,13 +18,15 @@
     "url": "git+https://github.com/js-structured/structured.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "bili --config ../../.bilirc.js"
   },
   "bugs": {
     "url": "https://github.com/js-structured/structured/issues"
   },
   "dependencies": {
     "@structured/binary-tree": "file:../binary-tree",
+    "@structured/comparable": "file:../comparable",
     "@structured/iterable": "file:../iterable"
   }
 }

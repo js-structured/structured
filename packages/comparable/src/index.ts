@@ -1,5 +1,3 @@
-import { enumerate, zipLongest } from '@structured/iterable'
-
 /**
  * A Function to compare two values of the same type `T`.
  *
@@ -47,59 +45,4 @@ export const stringIncreasing: Comparator<string> = (a, b) =>
  */
 export function reverseCompare<T>(compare: Comparator<T>): Comparator<T> {
   return (a, b) => -compare(a, b)
-}
-
-/**
- * A private function that serves the asis for both getTupleComparator and
- * getIterableComparator.
- */
-function _getMultiComparator<T extends unknown[]>(
-  ...compare: Comparatorify<T>
-): Comparator<T> {
-  return (aTuple, bTuple) => {
-    for (const [i, [a, b]] of enumerate(zipLongest(aTuple, bTuple))) {
-      // If both are undefined, we have finished both iterators.
-      if (a === undefined) {
-        return -1
-      } else if (b === undefined) {
-        return 1
-      }
-      const d = compare[i % compare.length](a, b)
-      if (d < 0) {
-        return -1
-      } else if (d > 0) {
-        return 1
-      }
-      // Otherwise continue to the next
-    }
-    return 0
-  }
-}
-
-/**
- * Wraps multiple compare methods to compare tuples lexicographically.
- *
- * @param compareMethods Methods to compare the values at each index in the
- * tuple.
- * @returns A comparator that will compare tuples lexicographically.
- */
-export function getTupleComparator<T extends unknown[]>(
-  ...compareMethods: Comparatorify<T>
-): Comparator<T> {
-  return _getMultiComparator(...compareMethods)
-}
-
-/**
- * Wraps a compare method to compare iterables lexicographically.
- *
- * @param compare A comparator for single values
- * @returns A comparator that will compare iterables (of values comparable by
- * compare) lexicographically.
- */
-export function getIterableComparator<T>(
-  compare: Comparator<T>
-): Comparator<Iterable<T>> {
-  // We assert the type here because we know how _getMultiComparator is
-  // implemented.
-  return _getMultiComparator(compare) as Comparator<Iterable<T>>
 }

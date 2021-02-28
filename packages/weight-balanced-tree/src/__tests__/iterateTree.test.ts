@@ -1,5 +1,6 @@
 import { map } from '@structured/iterable'
-import { Comparator, fromSorted, iterateTree } from '..'
+import { fromSorted, iterateTree } from '..'
+import { Comparator } from '@structured/comparable'
 
 describe('iterate tree', () => {
   const compare: Comparator<number> = (a, b) => a - b

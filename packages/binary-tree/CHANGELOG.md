@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/js-structured/structured/compare/@structured/binary-tree@1.2.0...@structured/binary-tree@1.2.1) (2021-02-28)
+
+**Note:** Version bump only for package @structured/binary-tree
+
+
+
+
+
 # [1.2.0](https://github.com/js-structured/structured/compare/@structured/binary-tree@1.1.0...@structured/binary-tree@1.2.0) (2021-02-24)
 
 

@@ -16,6 +16,7 @@ import {
   repeat,
   zip,
 } from '@structured/iterable'
+import { Comparator } from '@structured/comparable'
 
 // Set defaults for tree rotation so that weights are kept accurate
 const { singleLeft, singleRight, doubleLeft, doubleRight } = rotateWith<{
@@ -111,7 +112,6 @@ export function balanceRight<
     : doubleRight<T, N>(node, onRight)
 }
 
-export type Comparator<K> = (a: K, b: K) => number
 export type WBTNode<K, V> = BTNode<
   Readonly<{ weight: number; key: K; value: V }>
 >

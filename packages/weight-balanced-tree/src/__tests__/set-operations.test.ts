@@ -48,9 +48,9 @@ describe('set operations', () => {
 
     it('Should have values matching the first tree', () => {
       for (const [key] of iterateTree(intersectionRoot)) {
-        expect(findByKey(unionRoot, key, compare).value).toBe(
-          findByKey(a, key, compare).value
-        )
+        const node = findByKey(unionRoot, key, compare)
+        expect(node).not.toBeUndefined()
+        expect(node?.value).toBe(findByKey(a, key, compare)?.value)
       }
     })
   })
@@ -80,7 +80,7 @@ describe('set operations', () => {
 
     it('Should have values matching the first tree', () => {
       for (const [key, value] of iterateTree(intersectionRoot)) {
-        expect(value).toBe(findByKey(a, key, compare).value)
+        expect(value).toBe(findByKey(a, key, compare)?.value)
       }
     })
   })

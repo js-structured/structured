@@ -1,4 +1,4 @@
-import { WBTNode, findByIndex, findByKey } from '..'
+import { findByIndex, findByKey } from '..'
 import { Comparator } from '@structured/comparable'
 
 describe('find node', () => {
@@ -13,7 +13,7 @@ describe('find node', () => {
    * 0   2   4   6
    * ```
    */
-  const root: WBTNode<number, number> = {
+  const root = {
     left: {
       left: { key: 0, value: 0, weight: 1 },
       key: 1,

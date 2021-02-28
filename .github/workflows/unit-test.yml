@@ -1,0 +1,22 @@
+name: unit-test
+
+on: 
+  - push
+  - pull_request
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+
+      - name: Install and Test
+        run: |
+          yarn install --ignore-scripts
+          yarn test
